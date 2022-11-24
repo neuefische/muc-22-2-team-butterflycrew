@@ -20,11 +20,17 @@ List<Movie> movieList;
         return movieList;
     }
 
-    public Movie getMovieByID(int id){
-        return movieList.get(id);
+    public Movie getMovieByID(String id){
+        for (Movie movie : movieList) {
+            if (movie.id().equals(id)){
+                return movie;
+            }
+        }
+        // ToDo: Fehlermeldung ergänzen, muss Exception von Typ HTTP-Request werfen
+        return null;
     }
 
-    public void deleteMovieByID(int id){
+    public void deleteMovieByID(String id){
         movieList.remove(id);
     }
 
