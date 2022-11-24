@@ -2,7 +2,7 @@ package de.neuefische.backend.controller;
 
 
 import de.neuefische.backend.models.Movie;
-import de.neuefische.backend.repo.MovieRepo;
+
 import de.neuefische.backend.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +38,7 @@ public class MovieController {
         return movieService.addMovie(movieToAdd);
     }
 
-    @PutMapping(path = "/{id}/update, {id}")
+    @PutMapping(path = "/{id}/update")
     public Movie updateMovie (@PathVariable String id, @RequestBody Movie movieToUpdate){
         if(!movieToUpdate.id().equals(id)){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The ID in the URL does not match the request body's ID");
