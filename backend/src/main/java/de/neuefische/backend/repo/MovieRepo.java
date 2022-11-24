@@ -3,7 +3,7 @@ package de.neuefische.backend.repo;
 import de.neuefische.backend.models.Movie;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 
@@ -26,12 +26,11 @@ List<Movie> movieList;
                 return movie;
             }
         }
-        // ToDo: Fehlermeldung ergänzen, muss Exception von Typ HTTP-Request werfen
         return null;
     }
 
     public void deleteMovieByID(String id){
-        movieList.remove(id);
+        movieList.remove(getMovieByID(id));
     }
 
     public Movie addMovie(Movie movieToAdd){
@@ -40,7 +39,7 @@ List<Movie> movieList;
     }
     public Movie updateMovie(Movie movieToUpdate){
         for (Movie movie : movieList) {
-            if(movie.id() == movieToUpdate.id()){
+            if(movie.id().equals(movieToUpdate.id())){
                 Movie copy = new Movie(
                         movie.id(),
                         movie.imdb_id(),
