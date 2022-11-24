@@ -3,7 +3,7 @@ package de.neuefische.backend.models;
 import java.util.List;
 
 public record Movie(
-        int id,
+        String id,
         String imdb_id,
         String title,
         List<Genre> genres,
