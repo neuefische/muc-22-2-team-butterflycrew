@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class MovieRepo {
 
-List<Movie> movieList;
+private List<Movie> movieList;
 
     public MovieRepo(List<Movie> movieList) {
         this.movieList = movieList;
