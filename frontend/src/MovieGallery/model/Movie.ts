@@ -10,5 +10,6 @@ export type Movie = {
     budget: number,
     overview: string,
     runtime: number,
-    vote_average: number
+    vote_average: number,
+    poster_path: string
 }
