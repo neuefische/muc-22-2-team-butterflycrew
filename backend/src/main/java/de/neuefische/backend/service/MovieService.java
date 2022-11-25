@@ -13,8 +13,9 @@ public class MovieService {
     private MovieRepo movieRepo;
     private IDService idService;
 
-    public MovieService(MovieRepo movieRepo){
+    public MovieService(MovieRepo movieRepo, IDService idService){
         this.movieRepo = movieRepo;
+        this.idService = idService;
     }
 
     public List<Movie> getAllMovies(){
