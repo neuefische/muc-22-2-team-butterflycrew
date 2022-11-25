@@ -1,7 +1,8 @@
 import {Movie} from "../model/Movie";
 import {useNavigate} from "react-router-dom";
+import {getImage} from "../api/image-api";
 export type MovieCardProps = {
-    movies: Movie
+    movie: Movie
 }
 
 export default function MovieCard(props: MovieCardProps) {
@@ -9,15 +10,15 @@ export default function MovieCard(props: MovieCardProps) {
     const navigate = useNavigate()
 
     function onClickDetails(){
-        navigate("/movies/" + props.movies.id)
+        navigate("/movies/" + props.movie.id)
     }
 
 
     return (
         <div className={"card"}>
-            {/*<img src={props.movies.poster_path} alt={"MoviePicture"}/>*/}
-            <h2>{props.movies.title}</h2>
-            <p>{props.movies.release_date}</p>
+            <img src={getImage(props.movie.poster_path)} alt={"MoviePicture"}/>
+            <h2>{props.movie.title}</h2>
+            <p>{props.movie.release_date}</p>
             <div className={"button"}>
                 <button onClick={onClickDetails}>Details</button>
             </div>
