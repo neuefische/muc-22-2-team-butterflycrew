@@ -14,10 +14,10 @@ export default function MovieGallery(props: MovieGalleryProps){
     })
 
     return(
-        <div>
+
             <div className={"gallery"}>
                 {movieComponents}
             </div>
-        </div>
+
     )
 }
