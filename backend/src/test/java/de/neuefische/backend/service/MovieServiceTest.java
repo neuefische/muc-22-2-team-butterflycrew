@@ -3,6 +3,7 @@ package de.neuefische.backend.service;
 import de.neuefische.backend.models.Movie;
 import de.neuefische.backend.repo.MovieRepo;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.Assert;
 
 
 import java.util.Collections;
@@ -111,6 +112,28 @@ class MovieServiceTest {
         //Then
         assertEquals(expectedMovie, actualMovie);
         verify(movieRepo).updateMovie(expectedMovie);
+
+    }
+
+
+    @Test
+    void deleteMovie(){
+        // Given
+        Movie expectedMovie = new Movie(
+                "1",
+                "1234",
+                "Fight Club",
+                Collections.emptyList(),
+                "01.01.2000",
+                "released",
+                100000,
+                "BlaBlaBla",
+                129,
+                6.8 );
+
+        doNothing().when(movieRepo).deleteMovieByID(isA(String.class));
+        movieRepo.deleteMovieByID(expectedMovie.id());
+        verify(movieRepo, times(1)).deleteMovieByID(expectedMovie.id());
 
     }
 }
