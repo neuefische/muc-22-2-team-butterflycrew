@@ -15,9 +15,9 @@ export default function MovieGallery(props: MovieGalleryProps){
 
     return(
 
-            <div className={"gallery"}>
-                {movieComponents}
-            </div>
+        <div className={"gallery"}>
+            {movieComponents}
+        </div>
 
     )
 }
