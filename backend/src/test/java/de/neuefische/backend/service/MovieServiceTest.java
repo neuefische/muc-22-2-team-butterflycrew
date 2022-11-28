@@ -3,11 +3,10 @@ package de.neuefische.backend.service;
 import de.neuefische.backend.models.Movie;
 import de.neuefische.backend.repo.MovieRepo;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
 
 import java.util.Collections;
-import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -17,17 +16,17 @@ class MovieServiceTest {
     MovieRepo movieRepo = mock(MovieRepo.class);
     IDService idService = mock(IDService.class);
 
-    MovieService movieService = new MovieService(movieRepo, idService);
+    MovieService movieService = new MovieService();
 
 
     @Test
     void getAllMovies() {
         //Given
-        List<Movie> expected = Collections.emptyList();
+        Map<String, Movie> expected = Collections.emptyMap();
 
         //When
         when(movieRepo.getMovieList()).thenReturn(expected);
-        List<Movie> result = movieService.getAllMovies();
+        Map<String, Movie> result = movieService.getAllMovies();
 
         //Then
         assertEquals(expected, result);

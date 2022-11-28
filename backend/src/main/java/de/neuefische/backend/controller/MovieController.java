@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/movies")
@@ -17,14 +17,12 @@ public class MovieController {
 
     private final MovieService movieService;
 
-
-
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
     }
 
     @GetMapping
-    public List<Movie> getAllMovies(){
+    public Map<String, Movie> getAllMovies(){
         return movieService.getAllMovies();
     }
 

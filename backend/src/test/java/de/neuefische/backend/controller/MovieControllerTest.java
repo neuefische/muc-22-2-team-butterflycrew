@@ -3,8 +3,6 @@ package de.neuefische.backend.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.neuefische.backend.models.Movie;
 import de.neuefische.backend.repo.MovieRepo;
-import de.neuefische.backend.service.IDService;
-import de.neuefische.backend.service.MovieService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -32,7 +30,6 @@ class MovieControllerTest {
     @Autowired
     private MovieRepo movieRepo;
 
-
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -58,7 +55,7 @@ class MovieControllerTest {
                 "BlaBlaBla",
                 129,
                 6.8);
-        movieRepo.getMovieList().add(e);
+        movieRepo.getMovieList().put(e.id(), e);
 
         mockMvc.perform(get("/api/movies/" + e.id()))
                 .andExpect(status().isOk())
@@ -142,7 +139,7 @@ class MovieControllerTest {
                 "BlaBlaBla",
                 129,
                 6.8);
-        movieRepo.getMovieList().add(e);
+        movieRepo.getMovieList().put(e.id(), e);
 
         mockMvc.perform(put("/api/movies/" + e.id() + "/update")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -198,7 +195,7 @@ class MovieControllerTest {
                 "BlaBlaBla",
                 129,
                 6.8);
-        movieRepo.getMovieList().add(e);
+        movieRepo.getMovieList().put(e.id(), e);
 
         mockMvc.perform(delete("/api/movies/" + e.id()))
                 .andExpect(status().isOk());
