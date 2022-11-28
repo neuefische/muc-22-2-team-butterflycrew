@@ -16,7 +16,7 @@ class MovieServiceTest {
     MovieRepo movieRepo = mock(MovieRepo.class);
     IDService idService = mock(IDService.class);
 
-    MovieService movieService = new MovieService();
+    MovieService movieService = new MovieService(movieRepo);
 
 
     @Test
@@ -25,12 +25,12 @@ class MovieServiceTest {
         Map<String, Movie> expected = Collections.emptyMap();
 
         //When
-        when(movieRepo.getMovieList()).thenReturn(expected);
+        when(movieRepo.getMovieMap()).thenReturn(expected);
         Map<String, Movie> result = movieService.getAllMovies();
 
         //Then
         assertEquals(expected, result);
-        verify(movieRepo).getMovieList();
+        verify(movieRepo).getMovieMap();
 
     }
 
@@ -84,7 +84,6 @@ class MovieServiceTest {
         assertEquals(expectedMovie, actualMovie);
         verify(movieRepo).getMovieByID(id);
     }
-
 
 
     @Test
