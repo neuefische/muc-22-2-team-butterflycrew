@@ -48,5 +48,4 @@ public class MovieController {
     public void deleteMovie(@PathVariable String id){
         movieService.deleteMovie(id);
     }
-
 }

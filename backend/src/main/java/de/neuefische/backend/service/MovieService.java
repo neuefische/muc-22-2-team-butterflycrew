@@ -10,10 +10,14 @@ import java.util.Map;
 @Service
 public class MovieService {
 
-    private final MovieRepo movieRepo = new MovieRepo();
+    private final MovieRepo movieRepo;
+
+    public MovieService(MovieRepo movieRepo){
+        this.movieRepo = movieRepo;
+    }
 
     public Map<String, Movie> getAllMovies(){
-        return movieRepo.getMovieList();
+        return movieRepo.getMovieMap();
     }
 
     public Movie addMovie(Movie movieToAdd){
