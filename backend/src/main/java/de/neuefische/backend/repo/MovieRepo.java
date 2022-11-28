@@ -4,7 +4,9 @@ import de.neuefische.backend.models.Movie;
 import de.neuefische.backend.service.IDService;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -12,10 +14,14 @@ import java.util.Map;
 public class MovieRepo {
 
 private final Map<String, Movie> movieMap = new HashMap<>();
-private final IDService idService = new IDService();
+private final IDService idService;
 
-    public Map<String, Movie> getMovieMap() {
-        return movieMap;
+    public MovieRepo(IDService idService) {
+        this.idService = idService;
+    }
+
+    public List<Movie> getAllMovies() {
+        return new ArrayList<>(movieMap.values());
     }
 
     public Movie getMovieByID(String id){
@@ -43,7 +49,8 @@ private final IDService idService = new IDService();
         return movieMap.get(add.id());
     }
     public Movie updateMovie(Movie movieToUpdate){
-        return movieMap.replace(movieToUpdate.id(), movieToUpdate);
+        movieMap.replace(movieToUpdate.id(), movieToUpdate);
+        return movieToUpdate;
     }
 
 }

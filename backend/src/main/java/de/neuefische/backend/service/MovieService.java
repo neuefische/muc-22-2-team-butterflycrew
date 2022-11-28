@@ -5,7 +5,7 @@ import de.neuefische.backend.models.Movie;
 import de.neuefische.backend.repo.MovieRepo;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
+import java.util.List;
 
 @Service
 public class MovieService {
@@ -16,8 +16,8 @@ public class MovieService {
         this.movieRepo = movieRepo;
     }
 
-    public Map<String, Movie> getAllMovies(){
-        return movieRepo.getMovieMap();
+    public List<Movie> getAllMovies(){
+        return movieRepo.getAllMovies();
     }
 
     public Movie addMovie(Movie movieToAdd){

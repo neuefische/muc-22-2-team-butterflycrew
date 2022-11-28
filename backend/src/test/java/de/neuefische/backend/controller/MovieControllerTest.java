@@ -14,7 +14,6 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import java.util.Collections;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -39,7 +38,7 @@ class MovieControllerTest {
     void getAllMovies_whenMovieListEmpty_thenReturnList() throws Exception {
         mockMvc.perform(get("/api/movies"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{}"));
+                .andExpect(content().json("[]"));
     }
 
     @Test
@@ -47,23 +46,35 @@ class MovieControllerTest {
     void getMovieByID() throws Exception {
         Movie e = new Movie(
                 "1",
-                "",
-                "",
+                "123",
+                "titleTest",
                 Collections.emptyList(),
-                "",
-                "",
-                0,
-                "",
-                0,
-                0.0);
-        movieRepo.getMovieMap().put(e.id(), e);
-
-        MvcResult result =  mockMvc.perform(get("/api/movies/" + e.id()))
+                "01.01.2020",
+                "released",
+                100000,
+                "BlaBlaBla",
+                2,
+                5.8
+                );
+        Movie res = movieRepo.addMovie(e);
+        //System.out.println("Movie:" + e);
+        mockMvc.perform(get("/api/movies/" + res.id()))
                 .andExpect(status().isOk())
-                .andReturn();
+                .andExpect(content().json("""
+                                                        {
+                                                            "id": "<ID>",
+                                                            "imdb_id": "123",
+                                                            "title": "titleTest",
+                                                            "genres": [],
+                                                            "release_date": "01.01.2020",
+                                                            "status": "released",
+                                                            "budget": 100000,
+                                                            "overview": "BlaBlaBla",
+                                                            "runtime": 2,
+                                                            "vote_average": 5.8
+                                                        }
+                                                    """.replace("<ID>", res.id())));
 
-        String s = result.getResponse().getContentAsString();
-        assertEquals(objectMapper.readValue(s, Movie.class), e);
     }
 
     @Test
@@ -109,9 +120,9 @@ class MovieControllerTest {
                 "BlaBlaBla",
                 129,
                 6.8);
-        movieRepo.getMovieMap().put(e.id(), e);
+        movieRepo.getAllMovies().add(e);
 
-        MvcResult result = mockMvc.perform(put("/api/movies/" + e.id() + "/update")
+        mockMvc.perform(put("/api/movies/" + e.id() + "/update")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(
                                 """
@@ -130,10 +141,20 @@ class MovieControllerTest {
                                                 """
                         ))
                 .andExpect(status().isOk())
-                .andReturn();
-
-        String s = result.getResponse().getContentAsString();
-        assertEquals(objectMapper.readValue(s, Movie.class), e);
+                .andExpect(content().json("""
+                                        {
+                                        "id": "1",
+                                        "imdb_id": "1234",
+                                        "title": "HelloKittyClub",
+                                        "genres": [],
+                                        "release_date": "01.01.2000",
+                                        "status": "released",
+                                        "budget": 100000,
+                                        "overview": "BlaBlaBla",
+                                        "runtime": 129,
+                                        "vote_average": 6.8
+                                        }
+                                                """));
 
     }
 
@@ -151,7 +172,7 @@ class MovieControllerTest {
                 "BlaBlaBla",
                 129,
                 6.8);
-        movieRepo.getMovieMap().put(e.id(), e);
+        movieRepo.getAllMovies().add(e);
 
         mockMvc.perform(delete("/api/movies/" + e.id()))
                 .andExpect(status().isOk());
