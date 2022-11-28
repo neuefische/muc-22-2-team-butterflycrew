@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 
 import java.util.Collections;
-import java.util.Map;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -22,15 +22,15 @@ class MovieServiceTest {
     @Test
     void getAllMovies() {
         //Given
-        Map<String, Movie> expected = Collections.emptyMap();
+        List<Movie> expected = Collections.emptyList();
 
         //When
-        when(movieRepo.getMovieMap()).thenReturn(expected);
-        Map<String, Movie> result = movieService.getAllMovies();
+        when(movieRepo.getAllMovies()).thenReturn(expected);
+        List<Movie> result = movieService.getAllMovies();
 
         //Then
         assertEquals(expected, result);
-        verify(movieRepo).getMovieMap();
+        verify(movieRepo).getAllMovies();
 
     }
 
