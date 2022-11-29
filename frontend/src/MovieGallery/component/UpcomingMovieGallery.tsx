@@ -8,7 +8,7 @@ type UpcomingMovieGalleryProps = {
 }
 
 export default function UpcomingMovieGallery(props: UpcomingMovieGalleryProps){
-    const upcomingMovieComponent = props.upcomingMovies.map((movie) => {
+    const upcomingMovieComponent = props.upcomingMovies.slice(0, 5).map((movie) => {
         return (
             <UpcomingMovieComponent upcomingMovie={movie} key={movie.id} />
         )
