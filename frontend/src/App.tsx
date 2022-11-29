@@ -4,6 +4,7 @@ import NavBar from "./MovieGallery/component/NavBar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Details from "./MovieGallery/component/Details";
 import Header from "./MovieGallery/component/Header";
+import Home from "./MovieGallery/component/Home";
 
 
 function App() {
@@ -13,8 +14,8 @@ function App() {
             <Header/>
 
             <Routes>
-                <Route path={"/"} element={<p>"Movies"</p>}></Route>
-                <Route path={"/home"} element={"Home"}></Route>
+                <Route path={"/"} element={<Home />}></Route>
+                <Route path={"/home"} element={<Home/>}></Route>
                 <Route path={"/Movies"} element={<NavBar/>}></Route>
                 <Route path={"/movie/:id"} element={<Details/>}></Route>
             </Routes>
