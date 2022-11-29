@@ -11,7 +11,7 @@ type UpcomingMovieProps = {
     upcomingMovie: UpcomingMovie
 }
 
-export default function UpcomingMovie(props: UpcomingMovieProps){
+export default function UpcomingMovieComponent(props: UpcomingMovieProps){
     return(
         <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
