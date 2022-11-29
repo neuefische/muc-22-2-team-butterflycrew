@@ -57,4 +57,4 @@ jobs:
           name: app.jar
           path: backend/target
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl launch --remote-only --copy-config
+      - run: flyctl deploy
