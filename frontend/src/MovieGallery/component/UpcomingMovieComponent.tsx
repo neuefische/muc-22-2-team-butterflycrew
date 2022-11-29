@@ -1,35 +1,26 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 import {UpcomingMovie} from "../model/UpcomingMovie";
 import {getImage} from "../api/image-api";
+import {useNavigate} from "react-router-dom";
 
 type UpcomingMovieProps = {
     upcomingMovie: UpcomingMovie
 }
 
 export default function UpcomingMovieComponent(props: UpcomingMovieProps){
+
+    const navigate = useNavigate()
+    function handleOnClick(){
+        navigate("/details/" + props.upcomingMovie.id)
+    }
+
     return(
-        <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={getImage(props.upcomingMovie.poster_path)}
-                    alt="green iguana"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {props.upcomingMovie.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {props.upcomingMovie.overview}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+        <div className={"upcomingMovieComponent"}>
+            <img src={getImage(props.upcomingMovie.poster_path)} alt={props.upcomingMovie.title}/>
+            <h1>{props.upcomingMovie.title}</h1>
+            <h4>Release Date: {props.upcomingMovie.release_date}</h4>
+            <p>{props.upcomingMovie.overview}</p>
+            <button onClick={handleOnClick}>Details</button>
+        </div>
     )
 }
