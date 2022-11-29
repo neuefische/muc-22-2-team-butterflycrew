@@ -20,7 +20,7 @@ export default function Home(){
     }
 
     return(
-        <div>
+        <div className={"container-xl"}>
             <h1>Upcoming Movies</h1>
             <UpcomingMovieGallery upcomingMovies={upcomingMovies} />
         </div>
