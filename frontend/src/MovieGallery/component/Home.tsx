@@ -21,6 +21,7 @@ export default function Home(){
 
     return(
         <div>
+            <h1>Upcoming Movies</h1>
             <UpcomingMovieGallery upcomingMovies={upcomingMovies} />
         </div>
     )
