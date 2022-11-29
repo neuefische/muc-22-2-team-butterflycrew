@@ -1,6 +1,7 @@
 import {UpcomingMovie} from "../model/UpcomingMovie";
 import UpcomingMovieComponent from "./UpcomingMovieComponent";
 import Grid from '@mui/material/Grid';
+import {Box} from "@mui/material";
 
 type UpcomingMovieGalleryProps = {
     upcomingMovies: UpcomingMovie[]
@@ -14,10 +15,12 @@ export default function UpcomingMovieGallery(props: UpcomingMovieGalleryProps){
     })
 
     return(
-        <Grid container spacing={2}>
-            <Grid item xs={8}>
-                {upcomingMovieComponent}
+        <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+                <Grid item xs={8}>
+                    {upcomingMovieComponent}
+                </Grid>
             </Grid>
-        </Grid>
+        </Box>
     )
 }
