@@ -9,8 +9,11 @@ export default function NavBar() {
         <nav className={"navbar"}>
             <div className={"logo"}>
                 <img src={logo} alt = 'logo'/>
+
+                <div className={"navbar"}>
                 <NavLink className={"NavLink"} to={"/"}>Home</NavLink>
                 <NavLink className={"NavLink"} to={"/movies"}>Movies</NavLink>
+                </div>
 
             </div>
         </nav>
