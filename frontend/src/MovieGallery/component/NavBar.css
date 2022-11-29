@@ -1,17 +1,19 @@
 .logo img {
-    width: 12rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
 }
 
 .logo {
     background-color: #545454;
     width: 100%;
     font-family: sans-serif;
+    display: flex;
+
 }
 
 .NavLink {
-
+    list-style: none;
     color: white;
 
-
 }
+
