@@ -28,7 +28,7 @@ export default function Details(){
         if(id){
             getMovieById(id)
         }
-    },[])
+    },[id])
 
     function getMovieById(id: string){
         axios.get("https:localhost:3000/api/movies/"+id)
