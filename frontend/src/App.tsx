@@ -4,22 +4,13 @@ import NavBar from "./MovieGallery/component/NavBar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Details from "./MovieGallery/component/Details";
 import Header from "./MovieGallery/component/Header";
-
+import Home from "./MovieGallery/component/Home";
 
 
 function App() {
     return (
         <div className="App">
-            <BrowserRouter>
-            <Header/>
-
-            <Routes>
-                <Route path={"/"} element={""}></Route>
-                <Route path={"/home"} element={""}></Route>
-                <Route path={"/Movies"} element={<NavBar/>}></Route>
-                <Route path={"/movie/:id"} element={<Details/>}></Route>
-            </Routes>
-            </BrowserRouter>
+            <Home />
         </div>
     );
 }
