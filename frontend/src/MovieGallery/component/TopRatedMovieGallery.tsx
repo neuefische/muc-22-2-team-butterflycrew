@@ -10,7 +10,7 @@ export default function TopRatedMovieGallery(props: TopRatedMovieGalleryProps){
     const topRatedMovieComponent = props.topRatedMovies.filter((movie) => movie.vote_average >= 8)
     .slice(0, 5).map((movie) => {
             return(
-                <TopRatedMovieComponent topRatedMovie={movie} />
+                <TopRatedMovieComponent topRatedMovie={movie} key={movie.id} />
             )
         })
 
