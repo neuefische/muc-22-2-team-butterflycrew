@@ -3,8 +3,6 @@ import {UpcomingMovie} from "../model/UpcomingMovie";
 import {getImage} from "../api/image-api";
 import {useNavigate} from "react-router-dom";
 import "./UpcomingMovieComponent.css"
-import {useEffect, useState} from "react";
-import axios from "axios";
 
 type UpcomingMovieProps = {
     upcomingMovie: UpcomingMovie
@@ -15,20 +13,6 @@ export default function UpcomingMovieComponent(props: UpcomingMovieProps){
     const navigate = useNavigate()
     function handleOnClick(){
         navigate("/details/" + props.upcomingMovie.id)
-    }
-
-    const [genres, setGenres] = useState<string[]>([])
-
-    useEffect(() => {
-        getGenre()
-    }, [])
-
-    function getGenre(){
-        axios.get("https://api.themoviedb.org/" + props.upcomingMovie.id + "/genre/movie/list?api_key=541894e58c6ae639dc89b9c8e73a5cf8&language=de")
-            .then((response) => {
-                setGenres(response.data)
-            })
-            .catch(e => console.log(e))
     }
 
     return(
@@ -42,7 +26,7 @@ export default function UpcomingMovieComponent(props: UpcomingMovieProps){
                     </p>
                 </div>
                 <div className="card-footer">
-                    <small className="text-muted">{genres}</small>
+                    <small className="text-muted">Genres:</small>
                 </div>
         </div>
     )
