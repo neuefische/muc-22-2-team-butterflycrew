@@ -10,7 +10,9 @@ import Home from "./MovieGallery/component/Home";
 function App() {
     return (
         <div className="App">
+
             <BrowserRouter>
+
             <Header/>
 
             <Routes>

@@ -1,3 +1,13 @@
+.logoname{
+    font-family: Amsterdam;
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+    flex-direction: column;
+    align-self: center;
+
+}
+
 .logo img {
     width: 10rem;
     height: 10rem;
@@ -8,12 +18,14 @@
     width: 100%;
     font-family: sans-serif;
     display: flex;
-
 }
 
 .NavLink {
     list-style: none;
     color: white;
+    margin-left: 10px;
+    font-family: "Arial Black";
+
 
 }
 
