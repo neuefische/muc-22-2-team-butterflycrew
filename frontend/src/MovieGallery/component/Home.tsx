@@ -2,13 +2,17 @@ import UpcomingMovieGallery from "./UpcomingMovieGallery";
 import {useEffect, useState} from "react";
 import {UpcomingMovie} from "../model/UpcomingMovie";
 import axios from "axios";
+import TopRatedMovieGallery from "./TopRatedMovieGallery";
+import {TopRatedMovie} from "../model/TopRatedMovie";
 
 export default function Home(){
 
     const [upcomingMovies, setUpcomingMovies] = useState<UpcomingMovie[]>([])
+    const [topRatedMovies, setTopRatedMovies] = useState<TopRatedMovie[]>([])
 
     useEffect(() => {
         getUpcomingMovies()
+        getTopRatedMovies()
     }, [])
 
     function getUpcomingMovies(){
@@ -19,11 +23,20 @@ export default function Home(){
             .catch(e => console.error(e))
     }
 
+    function getTopRatedMovies() {
+        axios.get("https://api.themoviedb.org/3/movie/top_rated?api_key=541894e58c6ae639dc89b9c8e73a5cf8&language=de")
+            .then((response) => {
+                setTopRatedMovies(response.data.results)
+            })
+            .catch(e => console.error(e))
+    }
+
     return(
         <div className={"container-xl"}>
             <h1>Upcoming Movies</h1>
             <UpcomingMovieGallery upcomingMovies={upcomingMovies} />
             <h1>Top Rated Movies</h1>
+            <TopRatedMovieGallery topRatedMovies={topRatedMovies} />
         </div>
     )
 }
