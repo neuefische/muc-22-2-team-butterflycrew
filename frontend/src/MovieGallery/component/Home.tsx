@@ -4,6 +4,8 @@ import {UpcomingMovie} from "../model/UpcomingMovie";
 import axios from "axios";
 import TopRatedMovieGallery from "./TopRatedMovieGallery";
 import {TopRatedMovie} from "../model/TopRatedMovie";
+import {PopularMovie} from "../model/PopularMovie";
+import PopularMovieGallery from "./PopularMovieGallery";
 
 export default function Home(){
 
@@ -48,6 +50,7 @@ export default function Home(){
             <h1>Top Rated Movies</h1>
             <TopRatedMovieGallery topRatedMovies={topRatedMovies} />
             <h1>Popular Movies</h1>
+            <PopularMovieGallery popularMovies={popularMovies} />
         </div>
     )
 }
