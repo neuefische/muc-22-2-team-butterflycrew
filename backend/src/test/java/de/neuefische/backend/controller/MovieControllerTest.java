@@ -56,7 +56,7 @@ class MovieControllerTest {
                 2,
                 5.8
                 );
-        Movie res = movieRepo.addMovie(e);
+        Movie res = movieRepo.save(e);
         //System.out.println("Movie:" + e);
         mockMvc.perform(get("/api/movies/" + res.id()))
                 .andExpect(status().isOk())
@@ -120,7 +120,7 @@ class MovieControllerTest {
                 "BlaBlaBla",
                 129,
                 6.8);
-        movieRepo.getAllMovies().add(e);
+        movieRepo.save(e);
 
         mockMvc.perform(put("/api/movies/" + e.id() + "/update")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -172,7 +172,7 @@ class MovieControllerTest {
                 "BlaBlaBla",
                 129,
                 6.8);
-        movieRepo.getAllMovies().add(e);
+        movieRepo.save(e);
 
         mockMvc.perform(delete("/api/movies/" + e.id()))
                 .andExpect(status().isOk());

@@ -6,6 +6,7 @@ import de.neuefische.backend.repo.MovieRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -17,23 +18,27 @@ public class MovieService {
     }
 
     public List<Movie> getAllMovies(){
-        return movieRepo.getAllMovies();
+        return movieRepo.findAll();
     }
 
     public Movie addMovie(Movie movieToAdd){
-        return movieRepo.addMovie(movieToAdd);
+        return movieRepo.save(movieToAdd);
     }
 
     public Movie getMovieByID(String id){
-        return movieRepo.getMovieByID(id);
+        Optional<Movie> optionalMovie = movieRepo.findById(id);
+        if (optionalMovie.isPresent()){
+            return optionalMovie.get();
+        }
+        throw new IllegalArgumentException("Id not found!");
     }
 
-    public void deleteMovie(String id){
-        movieRepo.deleteMovieByID(id);
+    public void deleteMovieById(String id){
+        movieRepo.deleteById(id);
     }
 
     public Movie updateMovie(Movie movieToUpdate){
-        return movieRepo.updateMovie(movieToUpdate);
+        return movieRepo.save(movieToUpdate);
     }
 
 

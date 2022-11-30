@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -25,12 +26,12 @@ class MovieServiceTest {
         List<Movie> expected = Collections.emptyList();
 
         //When
-        when(movieRepo.getAllMovies()).thenReturn(expected);
+        when(movieRepo.findAll()).thenReturn(expected);
         List<Movie> result = movieService.getAllMovies();
 
         //Then
         assertEquals(expected, result);
-        verify(movieRepo).getAllMovies();
+        verify(movieRepo).findAll();
 
     }
 
@@ -51,7 +52,7 @@ class MovieServiceTest {
         String expectedID = "1";
 
         //When
-        when(movieRepo.addMovie(any())).thenReturn(expectedMovie);
+        when(movieRepo.save(any())).thenReturn(expectedMovie);
         when(idService.generateID()).thenReturn(expectedID);
 
         Movie movieActual = movieService.addMovie(expectedMovie);
@@ -77,12 +78,12 @@ class MovieServiceTest {
 
                 String id = "1";
         //When
-        when(movieRepo.getMovieByID(id)).thenReturn(expectedMovie);
+        when(movieRepo.findById(id)).thenReturn(Optional.of(expectedMovie));
         Movie actualMovie = movieService.getMovieByID(id);
 
         //Then
         assertEquals(expectedMovie, actualMovie);
-        verify(movieRepo).getMovieByID(id);
+        verify(movieRepo).findById(id);
     }
 
 
@@ -104,12 +105,12 @@ class MovieServiceTest {
 
 
         //When
-        when(movieRepo.updateMovie(expectedMovie)).thenReturn(expectedMovie);
+        when(movieRepo.save(expectedMovie)).thenReturn(expectedMovie);
         Movie actualMovie = movieService.updateMovie(expectedMovie);
 
         //Then
         assertEquals(expectedMovie, actualMovie);
-        verify(movieRepo).updateMovie(expectedMovie);
+        verify(movieRepo).save(expectedMovie);
 
     }
 
@@ -129,9 +130,9 @@ class MovieServiceTest {
                 129,
                 6.8 );
 
-        doNothing().when(movieRepo).deleteMovieByID(isA(String.class));
-        movieRepo.deleteMovieByID(expectedMovie.id());
-        verify(movieRepo, times(1)).deleteMovieByID(expectedMovie.id());
+        doNothing().when(movieRepo).deleteById(isA(String.class));
+        movieRepo.deleteById(expectedMovie.id());
+        verify(movieRepo, times(1)).deleteById(expectedMovie.id());
 
     }
 }
