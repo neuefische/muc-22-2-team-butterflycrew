@@ -1,5 +1,4 @@
 import {PopularMovie} from "../model/PopularMovie";
-import TopRatedMovieComponent from "./TopRatedMovieComponent";
 import PopularMovieComponent from "./PopularMovieComponent";
 
 type PopularMovieGalleryProps = {
@@ -9,7 +8,7 @@ type PopularMovieGalleryProps = {
 export default function PopularMovieGallery(props: PopularMovieGalleryProps){
     const popularMovieComponent = props.popularMovies.slice(0, 5).map((movie) => {
             return(
-                <PopularMovieComponent popularMovie={movie} />
+                <PopularMovieComponent popularMovie={movie} key={movie.id} />
             )
         })
 
