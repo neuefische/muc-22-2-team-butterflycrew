@@ -23,6 +23,7 @@ export default function Home(){
         <div className={"container-xl"}>
             <h1>Upcoming Movies</h1>
             <UpcomingMovieGallery upcomingMovies={upcomingMovies} />
+            <h1>Top Rated Movies</h1>
         </div>
     )
 }
