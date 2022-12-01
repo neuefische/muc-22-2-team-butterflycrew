@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public record MovieToExchange(
         @Id
         String id,
-        String status, //search or offer
         String title,
+        String status, //search or offer
         String description,
         String condition,
         double price
