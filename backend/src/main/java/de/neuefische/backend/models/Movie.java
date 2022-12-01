@@ -13,14 +13,14 @@ public class Movie{
         String imdb_id;
         List<Integer> genres;
         String title;
-        String poster_pat;
+        String poster_path;
 
-        public Movie(String id, String imdb_id, List<Integer> genres, String title, String poster_pat) {
+        public Movie(String id, String imdb_id, List<Integer> genres, String title, String poster_path) {
                 this.id = id;
                 this.imdb_id = imdb_id;
                 this.genres = genres;
                 this.title = title;
-                this.poster_pat = poster_pat;
+                this.poster_path = poster_path;
         }
 
         public String getId() {
@@ -40,7 +40,7 @@ public class Movie{
         }
 
         public String getPoster_pat() {
-                return poster_pat;
+                return poster_path;
         }
 
         @Override
@@ -54,7 +54,7 @@ public class Movie{
                 if (!Objects.equals(imdb_id, movie.imdb_id)) return false;
                 if (!Objects.equals(genres, movie.genres)) return false;
                 if (!Objects.equals(title, movie.title)) return false;
-                return Objects.equals(poster_pat, movie.poster_pat);
+                return Objects.equals(poster_path, movie.poster_path);
         }
 
         @Override
@@ -63,7 +63,7 @@ public class Movie{
                 result = 31 * result + (imdb_id != null ? imdb_id.hashCode() : 0);
                 result = 31 * result + (genres != null ? genres.hashCode() : 0);
                 result = 31 * result + (title != null ? title.hashCode() : 0);
-                result = 31 * result + (poster_pat != null ? poster_pat.hashCode() : 0);
+                result = 31 * result + (poster_path != null ? poster_path.hashCode() : 0);
                 return result;
         }
 }
