@@ -1,5 +1,6 @@
 package de.neuefische.backend.service;
 
+import de.neuefische.backend.models.MovieExchangeDTO;
 import de.neuefische.backend.models.MovieToExchange;
 import de.neuefische.backend.repo.ExchangeRepo;
 import org.springframework.stereotype.Service;
@@ -11,17 +12,28 @@ import java.util.Optional;
 public class ExchangeService {
 
     private final ExchangeRepo exchangeRepo;
+    private final IDService idService;
 
-    public ExchangeService(ExchangeRepo exchangeRepo) {
+    public ExchangeService(ExchangeRepo exchangeRepo, IDService idService) {
         this.exchangeRepo = exchangeRepo;
+        this.idService = idService;
     }
 
     public List<MovieToExchange> getAllEntries() {
         return exchangeRepo.findAll();
     }
 
-    public MovieToExchange addEntry(MovieToExchange entryToAdd){
-        return exchangeRepo.save(entryToAdd);
+    public MovieToExchange addEntry(MovieExchangeDTO entryToAdd){
+
+        MovieToExchange newMovieToExchange = new MovieToExchange(
+                idService.generateID(),
+                entryToAdd.title(),
+                entryToAdd.status(),
+                entryToAdd.description(),
+                entryToAdd.condition(),
+                entryToAdd.price()
+        );
+        return exchangeRepo.save(newMovieToExchange);
     }
 
     public MovieToExchange getEntryByID (String id){
