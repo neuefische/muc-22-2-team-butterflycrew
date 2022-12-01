@@ -48,7 +48,17 @@ public class ExchangeService {
         exchangeRepo.deleteById(id);
     }
 
-    public MovieToExchange updateEntry (MovieToExchange entryToUpdate){
-        return exchangeRepo.save(entryToUpdate);
+    public MovieToExchange updateEntry(String id, MovieExchangeDTO entryUpdate){
+        MovieToExchange toEdit = new MovieToExchange(
+                id,
+                entryUpdate.title(),
+                entryUpdate.status(),
+                entryUpdate.description(),
+                entryUpdate.condition(),
+                entryUpdate.price());
+
+        return exchangeRepo.save(toEdit);
     }
+
+
 }
