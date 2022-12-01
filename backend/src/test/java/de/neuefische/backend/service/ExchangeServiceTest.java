@@ -100,16 +100,10 @@ class ExchangeServiceTest {
                 "new",
                 8.50
         );
-        String id = "1";
 
-        // WHEN
-        when(exchangeRepo.findById(id)).thenReturn(Optional.of(expectedMovie));
-
-        MovieToExchange movieActual = exchangeService.getEntryByID(id);
-
-        // THEN
-        assertEquals(expectedMovie, movieActual);
-        verify(exchangeRepo).findById(id);
+        doNothing().when(exchangeRepo).deleteById(isA(String.class));
+        exchangeRepo.deleteById(expectedMovie.id());
+        verify(exchangeRepo, times(1)).deleteById(expectedMovie.id());
     }
 
     @Test
