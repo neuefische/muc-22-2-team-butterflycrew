@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -69,10 +70,46 @@ class ExchangeServiceTest {
     @Test
     void getEntryByID() {
 
+        MovieToExchange expectedMovie = new MovieToExchange(
+                "1",
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
+        );
+        String id = "1";
+
+        // WHEN
+        when(exchangeRepo.findById(id)).thenReturn(Optional.of(expectedMovie));
+
+        MovieToExchange movieActual = exchangeService.getEntryByID(id);
+
+        // THEN
+        assertEquals(expectedMovie, movieActual);
+        verify(exchangeRepo).findById(id);
     }
 
     @Test
     void deleteEntryByID() {
+        MovieToExchange expectedMovie = new MovieToExchange(
+                "1",
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
+        );
+        String id = "1";
+
+        // WHEN
+        when(exchangeRepo.findById(id)).thenReturn(Optional.of(expectedMovie));
+
+        MovieToExchange movieActual = exchangeService.getEntryByID(id);
+
+        // THEN
+        assertEquals(expectedMovie, movieActual);
+        verify(exchangeRepo).findById(id);
     }
 
     @Test
