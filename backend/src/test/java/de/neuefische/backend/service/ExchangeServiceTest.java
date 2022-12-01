@@ -1,5 +1,6 @@
 package de.neuefische.backend.service;
 
+import de.neuefische.backend.models.MovieExchangeDTO;
 import de.neuefische.backend.models.MovieToExchange;
 import de.neuefische.backend.repo.ExchangeRepo;
 import org.junit.jupiter.api.Test;
@@ -34,10 +35,40 @@ class ExchangeServiceTest {
 
     @Test
     void addEntry() {
+
+        // GIVEN
+        MovieExchangeDTO movieToAdd = new MovieExchangeDTO(
+
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
+
+        );
+        MovieToExchange expectedMovie = new MovieToExchange(
+                "1",
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
+        );
+
+        // WHEN
+        when(exchangeRepo.save(any())).thenReturn(expectedMovie);
+        when(idService.generateID()).thenReturn("1");
+
+        MovieToExchange movieActual = exchangeService.addEntry(movieToAdd);
+
+        // THEN
+        assertEquals(expectedMovie, movieActual);
+        verify(exchangeRepo).save(expectedMovie);
     }
 
     @Test
     void getEntryByID() {
+
     }
 
     @Test
