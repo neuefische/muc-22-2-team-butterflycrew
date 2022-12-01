@@ -1,5 +1,6 @@
 package de.neuefische.backend.service;
 
+import de.neuefische.backend.models.Movie;
 import de.neuefische.backend.models.MovieExchangeDTO;
 import de.neuefische.backend.models.MovieToExchange;
 import de.neuefische.backend.repo.ExchangeRepo;
@@ -108,5 +109,32 @@ class ExchangeServiceTest {
 
     @Test
     void updateEntry() {
+
+        MovieExchangeDTO movieToAdd = new MovieExchangeDTO(
+
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
+
+        );
+
+        MovieToExchange expectedMovie = new MovieToExchange(
+                "1",
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
+        );
+
+        //When
+        when(exchangeRepo.save(expectedMovie)).thenReturn(expectedMovie);
+        MovieToExchange actualMovie = exchangeService.updateEntry("1",movieToAdd);
+
+        //Then
+        assertEquals(expectedMovie, actualMovie);
+        verify(exchangeRepo).save(expectedMovie);
     }
 }
