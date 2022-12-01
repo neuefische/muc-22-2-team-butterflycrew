@@ -33,8 +33,8 @@ public class ExchangeController {
     }
 
     @PutMapping(path = "/{id}")
-    public MovieToExchange updateEntry(@PathVariable String id, @RequestBody MovieToExchange entry){
-        return exchangeService.updateEntry(entry);
+    public MovieToExchange updateEntry(@PathVariable String id, @RequestBody MovieExchangeDTO entry){
+        return exchangeService.updateEntry(id, entry);
     }
 
     @DeleteMapping(path = "/{id}")
