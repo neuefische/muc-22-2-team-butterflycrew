@@ -10,13 +10,8 @@ public record Movie(
         @Id
         String id,
         String imdb_id,
+        List<Integer> genres,
         String title,
-        List<Genre> genres,
-        String release_date,
-        String status,
-        int budget,
-        String overview,
-        int runtime,
-        double vote_average
+        String poster_path
 ) {
 }
