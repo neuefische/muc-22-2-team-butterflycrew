@@ -11,4 +11,7 @@ public class UpcomingMovie extends Movie{
         this.release_date=release_date;
     }
 
+    public String getRelease_date() {
+        return release_date;
+    }
 }
