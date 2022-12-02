@@ -35,23 +35,25 @@ class MovieServiceTest {
         //Given
         Movie movie1 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
                 "Titel",
+                "origTitle",
                 "/banane",
-                "2022-12-09",
-                3.6,
-                8.9
+                "",
+                "2022-12-10",
+                8.9,
+                7.0
         );
         Movie movie2 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
                 "Titel2",
+                "origTitle",
                 "/banane2",
+                "",
                 "2022-12-10",
-                3.6,
-                8.6
+                8.6,
+                7.0
         );
         List<Movie> expected = List.of(movie1, movie2);
 
@@ -69,23 +71,25 @@ class MovieServiceTest {
         //Given
         Movie movie1 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
                 "Titel",
+                "origTitle",
                 "/banane",
+                "",
                 "2021-12-09",
-                3.6,
-                8.9
+                8.9,
+                7.0
         );
         Movie movie2 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
                 "Titel2",
                 "/banane2",
                 "2021-12-10",
-                3.6,
-                8.6
+                "",
+                "2022-10-10",
+                8.0,
+                7.2
         );
         List<Movie> expected = List.of(movie1, movie2);
 
@@ -103,23 +107,25 @@ class MovieServiceTest {
         //Given
         Movie movie1 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
                 "Titel",
+                "origTitle",
                 "/banane",
-                "2022-12-09",
-                8.6,
-                8.9
+                "",
+                "2021-12-09",
+                8.9,
+                7.0
         );
         Movie movie2 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
-                "Titel2",
-                "/banane2",
-                "2022-12-10",
-                8.6,
-                8.7
+                "Titel",
+                "origTitle",
+                "/banane",
+                "",
+                "2021-12-09",
+                8.9,
+                7.0
         );
         List<Movie> expected = List.of(movie1, movie2);
 
@@ -136,23 +142,25 @@ class MovieServiceTest {
         //Given
         Movie movie1 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
                 "Titel",
+                "origTitle",
                 "/banane",
-                "2022-12-09",
-                8.5,
-                8.9
+                "",
+                "2021-12-09",
+                8.9,
+                7.0
         );
         Movie movie2 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
-                "Titel2",
-                "/banane2",
-                "2022-12-10",
-                8.5,
-                8.7
+                "Titel",
+                "origTitle",
+                "/banane",
+                "",
+                "2021-12-09",
+                6.0,
+                7.0
         );
         List<Movie> expected = List.of(movie1, movie2);
 
@@ -169,23 +177,25 @@ class MovieServiceTest {
         //Given
         Movie movie1 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
                 "Titel",
+                "origTitle",
                 "/banane",
-                "2022-12-09",
-                8.5,
-                4000
+                "",
+                "2021-12-09",
+                8.9,
+                5000
         );
         Movie movie2 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
-                "Titel2",
-                "/banane2",
-                "2022-12-10",
-                8.5,
-                4000
+                "Titel",
+                "origTitle",
+                "/banane",
+                "",
+                "2021-12-09",
+                8.9,
+                5000
         );
         List<Movie> expected = List.of(movie1, movie2);
 
@@ -202,23 +212,25 @@ class MovieServiceTest {
         //Given
         Movie movie1 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
                 "Titel",
+                "origTitle",
                 "/banane",
-                "2022-12-09",
-                8.5,
-                3999
+                "",
+                "2021-12-09",
+                8.9,
+                7.0
         );
         Movie movie2 = new Movie(
                 "1",
-                "12",
                 Collections.emptyList(),
-                "Titel2",
-                "/banane2",
-                "2022-12-10",
-                8.5,
-                3999
+                "Titel",
+                "origTitle",
+                "/banane",
+                "",
+                "2021-12-09",
+                8.9,
+                7.0
         );
         List<Movie> expected = List.of(movie1, movie2);
 
