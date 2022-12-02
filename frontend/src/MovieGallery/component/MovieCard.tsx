@@ -10,7 +10,7 @@ export default function MovieCard(props: MovieCardProps) {
     const navigate = useNavigate()
 
     function onClickDetails(){
-        navigate("/movies/" + props.movie.id)
+        navigate("/details/id" + props.movie.id)
     }
 
 
