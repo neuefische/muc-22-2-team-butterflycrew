@@ -45,18 +45,18 @@ class ExchangeControllerTest {
     void addEntry() throws Exception {
 
         MvcResult result = mockMvc.perform(post("/api/exchange")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(
-                        """
-                                {
-                                "title": "Der Herr Der Ringe",
-                                "status": "offer",
-                                "description": "ABC",
-                                "condition": "new",
-                                "price": 8.50
-                                }
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(
                                 """
-                ))
+                                        {
+                                        "title": "Der Herr Der Ringe",
+                                        "status": "offer",
+                                        "description": "ABC",
+                                        "condition": "new",
+                                        "price": 8.50
+                                        }
+                                        """
+                        ))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -67,7 +67,29 @@ class ExchangeControllerTest {
 
     @Test
     @DirtiesContext
-    void getEntryByID() {
+    void getEntryByID() throws Exception {
+
+        MovieToExchange movieToExchange = new MovieToExchange(
+                "8",
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
+        );
+        MovieToExchange result = exchangeRepo.save(movieToExchange);
+        mockMvc.perform(get("/api/exchange/" + result.id()))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        {
+                           "id": "<ID>",
+                           "title": "Der Herr Der Ringe",
+                           "status": "offer",
+                           "description": "ABC",
+                           "condition": "new",
+                            "price": 8.50
+                        }
+                        """.replace("<ID>", result.id())));
     }
 
     @Test
