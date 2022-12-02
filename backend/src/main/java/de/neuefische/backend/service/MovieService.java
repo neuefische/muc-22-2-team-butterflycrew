@@ -59,7 +59,6 @@ public class MovieService {
     }
 
     public Optional<Movie> getMovieById(String id){
-
         return movieRepo.findById(id);
     }
 }
