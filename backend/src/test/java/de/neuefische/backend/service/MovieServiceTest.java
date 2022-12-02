@@ -99,7 +99,7 @@ class MovieServiceTest {
     }
 
     @Test
-    void getUpcomingMovies_one_not_ok(){
+    void getTopratedMovies(){
         //Given
         Movie movie1 = new Movie(
                 "1",
@@ -107,8 +107,8 @@ class MovieServiceTest {
                 Collections.emptyList(),
                 "Titel",
                 "/banane",
-                "2021-12-09",
-                3.6,
+                "2022-12-09",
+                8.6,
                 8.9
         );
         Movie movie2 = new Movie(
@@ -118,23 +118,10 @@ class MovieServiceTest {
                 "Titel2",
                 "/banane2",
                 "2022-12-10",
-                3.6,
-                8.6
+                8.6,
+                8.7
         );
         List<Movie> expected = List.of(movie1, movie2);
-
-        //When
-        when(movieRepo.findAll()).thenReturn(expected);
-        List<Movie> result = movieService.getUpcomingMovies();
-
-        //Then
-        assertNotEquals(expected, result);
-        verify(movieRepo).findAll();
-    }
-    @Test
-    void getTopratedMovies(){
-        //Given
-        List<Movie> expected = Collections.emptyList();
 
         //When
         when(movieRepo.findAll()).thenReturn(expected);
@@ -145,9 +132,62 @@ class MovieServiceTest {
         verify(movieRepo).findAll();
     }
     @Test
+    void getTopratedMovies_not_ok(){
+        //Given
+        Movie movie1 = new Movie(
+                "1",
+                "12",
+                Collections.emptyList(),
+                "Titel",
+                "/banane",
+                "2022-12-09",
+                8.5,
+                8.9
+        );
+        Movie movie2 = new Movie(
+                "1",
+                "12",
+                Collections.emptyList(),
+                "Titel2",
+                "/banane2",
+                "2022-12-10",
+                8.5,
+                8.7
+        );
+        List<Movie> expected = List.of(movie1, movie2);
+
+        //When
+        when(movieRepo.findAll()).thenReturn(expected);
+        List<Movie> result = movieService.getTopratedMovies();
+
+        //Then
+        assertNotEquals(expected, result);
+        verify(movieRepo).findAll();
+    }
+    @Test
     void getPopulareMovies(){
         //Given
-        List<Movie> expected = Collections.emptyList();
+        Movie movie1 = new Movie(
+                "1",
+                "12",
+                Collections.emptyList(),
+                "Titel",
+                "/banane",
+                "2022-12-09",
+                8.5,
+                4000
+        );
+        Movie movie2 = new Movie(
+                "1",
+                "12",
+                Collections.emptyList(),
+                "Titel2",
+                "/banane2",
+                "2022-12-10",
+                8.5,
+                4000
+        );
+        List<Movie> expected = List.of(movie1, movie2);
 
         //When
         when(movieRepo.findAll()).thenReturn(expected);
@@ -155,6 +195,39 @@ class MovieServiceTest {
 
         //Then
         assertEquals(expected, result);
+        verify(movieRepo).findAll();
+    }
+    @Test
+    void getPopulareMovies_not_ok(){
+        //Given
+        Movie movie1 = new Movie(
+                "1",
+                "12",
+                Collections.emptyList(),
+                "Titel",
+                "/banane",
+                "2022-12-09",
+                8.5,
+                3999
+        );
+        Movie movie2 = new Movie(
+                "1",
+                "12",
+                Collections.emptyList(),
+                "Titel2",
+                "/banane2",
+                "2022-12-10",
+                8.5,
+                3999
+        );
+        List<Movie> expected = List.of(movie1, movie2);
+
+        //When
+        when(movieRepo.findAll()).thenReturn(expected);
+        List<Movie> result = movieService.getPopulareMovies();
+
+        //Then
+        assertNotEquals(expected, result);
         verify(movieRepo).findAll();
     }
 }

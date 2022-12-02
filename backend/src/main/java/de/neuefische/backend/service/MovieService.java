@@ -41,7 +41,7 @@ public class MovieService {
     public List<Movie> getTopratedMovies(){
         List<Movie> filteredMovies = new ArrayList<>();
         for (Movie allMovie : getAllMovies()){
-            if (allMovie.vote_average()>= TOPRATED_VALUE_TO_SHOW){
+            if (allMovie.vote_average() >= TOPRATED_VALUE_TO_SHOW){
                 filteredMovies.add(allMovie);
             }
         }
