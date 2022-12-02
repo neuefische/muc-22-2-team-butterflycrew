@@ -1,11 +1,13 @@
 .logoname{
-    font-family: Amsterdam;
+    font-family: Amsterdam,sans-serif;
+    align-self: center;
     color: white;
     font-size: 55px;
     font-weight: 500;
-    flex-direction: column;
-    align-self: center;
+}
 
+.navigation{
+    display: flex;
 }
 
 .logo img {
@@ -14,19 +16,28 @@
 }
 
 .logo {
-    background-color: #545454;
-    width: 100%;
-    font-family: sans-serif;
     display: flex;
+    font-family: sans-serif;
 }
 
 .NavLink {
     list-style: none;
     color: white;
-    margin-left: 25px;
-    font-family: "Andale Mono";
+    margin-left: 30px;
+    font-family: "Andale Mono", sans-serif;
     font-weight: bold;
     text-decoration: none;
+}
+
+.navbar{
+    flex-direction: row;
+    background-color: #545454;
+}
+
+@media only screen and (max-width: 600px){
+    .searchbar{
+        display: none;
+    }
 }
 
 
