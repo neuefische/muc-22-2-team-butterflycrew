@@ -63,6 +63,40 @@ class MovieServiceTest {
         assertEquals(expected, result);
         verify(movieRepo).findAll();
     }
+
+    @Test
+    void getUpcomingMovies_not_ok(){
+        //Given
+        Movie movie1 = new Movie(
+                "1",
+                "12",
+                Collections.emptyList(),
+                "Titel",
+                "/banane",
+                "2021-12-09",
+                3.6,
+                8.9
+        );
+        Movie movie2 = new Movie(
+                "1",
+                "12",
+                Collections.emptyList(),
+                "Titel2",
+                "/banane2",
+                "2021-12-10",
+                3.6,
+                8.6
+        );
+        List<Movie> expected = List.of(movie1, movie2);
+
+        //When
+        when(movieRepo.findAll()).thenReturn(expected);
+        List<Movie> result = movieService.getUpcomingMovies();
+
+        //Then
+        assertNotEquals(expected, result);
+        verify(movieRepo).findAll();
+    }
     @Test
     void getTopratedMovies(){
         //Given
