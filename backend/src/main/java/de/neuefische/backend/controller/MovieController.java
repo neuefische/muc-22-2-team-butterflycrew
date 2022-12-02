@@ -6,6 +6,7 @@ import de.neuefische.backend.service.MovieService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/movies")
@@ -29,5 +30,9 @@ public class MovieController {
     @GetMapping("/populare-movies")
     public List<Movie> getPopulareMovies(){
         return movieService.getPopulareMovies();
+    }
+    @GetMapping("/details/{id}")
+    public Optional<Movie> getMovieById(@PathVariable String id){
+        return movieService.getMovieById(id);
     }
 }
