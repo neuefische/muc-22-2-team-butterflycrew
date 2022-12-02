@@ -21,7 +21,6 @@ export default function TopRatedMovieComponent(props: TopRatedMovieComponentProp
                 <h5 className="card-title">{props.topRatedMovie.title}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">{props.topRatedMovie.vote_average}</h6>
                 <p className="card-text">
-                    {props.topRatedMovie.overview.slice(0, 100)}
                     <button className={"btn btn-info mx-2"} onClick={handleOnClick}>Details</button>
                 </p>
             </div>
