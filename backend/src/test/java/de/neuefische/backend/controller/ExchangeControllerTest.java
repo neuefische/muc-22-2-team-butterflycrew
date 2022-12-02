@@ -136,6 +136,18 @@ class ExchangeControllerTest {
     @Test
     @DirtiesContext
     void deleteEntry() throws Exception {
+        MovieToExchange movieToExchange = new MovieToExchange(
+                "8",
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
 
+        );
+        exchangeRepo.save(movieToExchange);
+
+        mockMvc.perform(delete("/api/exchange/" + movieToExchange.id()))
+                .andExpect(status().isOk());
     }
 }
