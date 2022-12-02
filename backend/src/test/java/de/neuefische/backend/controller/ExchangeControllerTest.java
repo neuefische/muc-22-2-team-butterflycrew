@@ -14,8 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -94,11 +93,49 @@ class ExchangeControllerTest {
 
     @Test
     @DirtiesContext
-    void updateEntry() {
+    void updateEntry() throws Exception {
+        MovieToExchange movieToExchange = new MovieToExchange(
+                "8",
+                "Der Herr Der Ringe",
+                "offer",
+                "ABC",
+                "new",
+                8.50
+        );
+        exchangeRepo.save(movieToExchange);
+
+        mockMvc.perform(put("/api/exchange/" + movieToExchange.id())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                                """
+                                {
+                               "id": "8",
+                               "title": "Blow",
+                               "status": "offer",
+                               "description": "ABC",
+                               "condition": "new",
+                               "price": 8.50
+                                }
+                                        """
+                        ))
+                .andExpect(status().isOk())
+                .andExpect(content().json(
+                        """
+                                {
+                               "id": "8",
+                               "title": "Blow",
+                               "status": "offer",
+                               "description": "ABC",
+                               "condition": "new",
+                               "price": 8.50
+                                }
+                                """
+                ));
     }
 
     @Test
     @DirtiesContext
-    void deleteEntry() {
+    void deleteEntry() throws Exception {
+
     }
 }
