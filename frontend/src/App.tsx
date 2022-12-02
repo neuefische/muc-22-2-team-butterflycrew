@@ -7,6 +7,7 @@ import Header from "./MovieGallery/component/Header";
 import Home from "./MovieGallery/component/Home";
 
 
+
 function App() {
     return (
         <div className="App">
