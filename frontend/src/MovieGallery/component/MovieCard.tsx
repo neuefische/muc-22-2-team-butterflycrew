@@ -10,9 +10,8 @@ export default function MovieCard(props: MovieCardProps) {
     const navigate = useNavigate()
 
     function onClickDetails(){
-        navigate("/details/id" + props.movie.id)
+        navigate("/details/" + props.movie.id)
     }
-
 
     return (
         <div className={"card"}>

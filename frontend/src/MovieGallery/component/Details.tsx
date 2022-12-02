@@ -18,7 +18,7 @@ export default function Details(){
     },[id])
 
     function getMovieById(id: string){
-        axios.get("/api/movies/"+id)
+        axios.get("/api/movies/details/"+id)
             .then(response=>response.data)
             .then(data=>{
                 setMovie(data)
