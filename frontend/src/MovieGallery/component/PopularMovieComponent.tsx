@@ -21,7 +21,6 @@ export default function PopularMovieComponent(props: PopularMovieComponentProps)
                 <h5 className="card-title">{props.popularMovie.title}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">{props.popularMovie.popularity}</h6>
                 <p className="card-text">
-                    {props.popularMovie.overview.slice(0, 100)}
                     <button className={"btn btn-info mx-2"} onClick={handleOnClick}>Details</button>
                 </p>
             </div>
