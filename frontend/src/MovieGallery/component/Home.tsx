@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {UpcomingMovie} from "../model/UpcomingMovie";
 import axios from "axios";
 
+
 export default function Home(){
 
     const [upcomingMovies, setUpcomingMovies] = useState<UpcomingMovie[]>([])
@@ -14,9 +15,10 @@ export default function Home(){
     }, [])
 
     function getUpcomingMovies(){
-        axios.get("http://localhost:3000/api/movies/upcoming-movies")
+        axios.get("/api/movies/upcoming-movies")
             .then((response) => {
-                setUpcomingMovies(response.data.results)
+
+                setUpcomingMovies(response.data)
             })
             .catch(e => console.error(e))
     }
