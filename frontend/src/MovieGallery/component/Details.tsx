@@ -31,15 +31,13 @@ export default function Details(){
             {!movie && <p>loading files...</p>}
             {movie &&
                 <div>
-                <h1>Name: {movie.title}</h1>
-                <p>imdb ID: {movie.imdb_id}</p><br/>
+                <h1> {movie.title}</h1>
                 <img alt={movie.title + "pic"} src={getImage(movie.poster_path)}/>
+                <p>Originaltitel: {movie.original_title}</p>
                 <p>Release: {movie.release_date}</p><br/>
-                <p>Status: {movie.status}</p><br/>
-                <p>Budget: {movie.budget}</p><br/>
-                <article>Overview: {movie.overview}</article><br/>
-                <p>Runtime: {movie.runtime}</p><br/>
+                <p>Populatität: {movie.popularity}</p><br/>
                 <p>Average Rating: {movie.vote_average}</p><br/>
+                    <article> {movie.overview}</article>
                 </div>
             }
         </div>

@@ -11,10 +11,11 @@ import java.util.List;
 public record Movie(
         @Id
         String id,
-        String imdb_id,
         List<Integer> genres,
         String title,
+        String original_title,
         String poster_path,
+        String overview,
         String release_date,
         double vote_average,
         double popularity
