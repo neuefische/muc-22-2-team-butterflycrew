@@ -5,13 +5,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document("Movies")
+@Document("Movie")
+
 public record Movie(
         @Id
         String id,
         String imdb_id,
         List<Integer> genres,
         String title,
-        String poster_path
+        String poster_path,
+        String release_date,
+        double vote_average,
+        double popularity
 ) {
 }
