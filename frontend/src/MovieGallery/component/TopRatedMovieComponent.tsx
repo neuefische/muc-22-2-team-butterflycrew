@@ -2,6 +2,7 @@ import {TopRatedMovie} from "../model/TopRatedMovie";
 import {getImage} from "../api/image-api";
 import * as React from "react";
 import {useNavigate} from "react-router-dom";
+import "./TopRatedMovieComponent.css"
 
 type TopRatedMovieComponentProps = {
     topRatedMovie: TopRatedMovie
