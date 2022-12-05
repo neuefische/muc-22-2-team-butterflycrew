@@ -6,6 +6,7 @@ import {TopRatedMovie} from "../model/TopRatedMovie";
 import TopRatedMovieGallery from "./TopRatedMovieGallery";
 import {PopularMovie} from "../model/PopularMovie";
 import PopularMovieGallery from "./PopularMovieGallery";
+import "./Home.css"
 
 
 export default function Home(){
@@ -45,15 +46,15 @@ export default function Home(){
     }
 
     return(
-        <div className="container-xl">
+        <div className="container-xl home">
             <h1>Upcoming Movies</h1>
             <UpcomingMovieGallery upcomingMovies={upcomingMovies} />
 
-            <h1>Toprated Movies</h1>
-            <TopRatedMovieGallery topRatedMovies={topratedMovies} />
-
             <h1>Populare Movies</h1>
             <PopularMovieGallery popularMovies={populareMovies} />
+
+            <h1>Toprated Movies</h1>
+            <TopRatedMovieGallery topRatedMovies={topratedMovies} />
         </div>
     )
 }
