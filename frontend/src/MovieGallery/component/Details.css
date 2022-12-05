@@ -1,12 +1,16 @@
+.containerDetails{
+    position: relative;
+    scale: 400%;
+}
 .detailsOverview{
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    min-height: 70rem;
+    overflow: hidden;
+
 }
 .movieOverview{
-
     text-align: center;
     border: 1px solid black;
     width: 600px;
@@ -15,8 +19,13 @@
     padding-right: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-bottom: 25px;
+    position: absolute;
+    top: 23rem;
+    left:40rem;
+    z-index: 10;
+    opacity:100%;
 }
-
 .moviePicture{
     margin-bottom: 10px;
+    scale: 80%;
 }
