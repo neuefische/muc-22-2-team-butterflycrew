@@ -23,12 +23,16 @@ export default function UpcomingMovieComponent(props: UpcomingMovieProps){
         return new Date(year, month, day).toLocaleDateString("de-DE")
     }
 
+
     return(
         <div className="col">
-            <div className="card h-100">
-                <img src={getImage(props.upcomingMovie.poster_path)} className="card-img rounded-start rounded-end" alt={props.upcomingMovie.title + " Poster"} onClick={handleDetailsClick} />
+            <div className="card border-0 upcomingMovieCard" onClick={handleDetailsClick}>
+                <img src={getImage(props.upcomingMovie.poster_path)} className="card-img-top rounded-start rounded-end" alt={props.upcomingMovie.title + " Poster"} />
+                <div className={"card-img-overlay"}>
+                    <button className={"btn btn-info disabled"}>Release Date: {parseDate(props.upcomingMovie.release_date)}</button>
+                </div>
             </div>
-            <i className="fa-solid fa-star"></i>
         </div>
-    )
+
+)
 }
