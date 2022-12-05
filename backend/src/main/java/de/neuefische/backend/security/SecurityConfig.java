@@ -13,16 +13,6 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsManager(){
-        return new InMemoryUserDetailsManager(
-                User.builder()
-                        .username("Marcus")
-                        .password("ABC69")
-                        .roles("Admin")
-                        .build()
-        );
-    }
-    @Bean
     public PasswordEncoder passwordEncoder(){
         return NoOpPasswordEncoder.getInstance();
     }
