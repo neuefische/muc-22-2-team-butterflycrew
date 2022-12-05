@@ -1,3 +1,5 @@
-.card {
-    width: 18rem;
+.fa-star{
+    position: absolute;
+    top: 8px;
+    right: 16px;
 }
