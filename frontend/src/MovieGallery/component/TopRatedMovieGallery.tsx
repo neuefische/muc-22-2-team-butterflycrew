@@ -15,7 +15,7 @@ export default function TopRatedMovieGallery(props: TopRatedMovieGalleryProps){
         })
 
     return(
-        <div className="card-group">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-4">
             {topRatedMovieComponent}
         </div>
     )
