@@ -3,6 +3,7 @@ import {Movie} from "../model/Movie";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {getImage} from "../api/image-api";
+import "./Details.css"
 
 export default function Details(){
 
@@ -27,17 +28,20 @@ export default function Details(){
     }
 
     return(
-        <div>
+        <div className={"detailsOverview"}>
             {!movie && <p>loading files...</p>}
             {movie &&
-                <div>
+                <div className={"movieOverview"}>
                 <h1> {movie.title}</h1>
-                <img alt={movie.title + "pic"} src={getImage(movie.poster_path)}/>
+                <img className={"moviePicture"} alt={movie.title + "pic"} src={getImage(movie.poster_path)}/>
                 <p>Originaltitel: {movie.original_title}</p>
-                <p>Release: {movie.release_date}</p><br/>
-                <p>Populatität: {movie.popularity}</p><br/>
-                <p>Average Rating: {movie.vote_average}</p><br/>
-                    <article> {movie.overview}</article>
+                <p>Release: {movie.release_date}</p>
+                <p>Populatität: {movie.popularity}</p>
+                <p>Average Rating: {movie.vote_average}</p>
+
+                        {movie.overview &&
+                <article><h3>Beschreibung:</h3>{movie.overview}</article>}
+
                 </div>
             }
         </div>
