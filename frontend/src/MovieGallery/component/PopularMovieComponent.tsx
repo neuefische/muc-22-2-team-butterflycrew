@@ -2,6 +2,7 @@ import {PopularMovie} from "../model/PopularMovie";
 import {getImage} from "../api/image-api";
 import * as React from "react";
 import {useNavigate} from "react-router-dom";
+import "./PopularMovieComponent.css"
 
 type PopularMovieComponentProps = {
     popularMovie: PopularMovie
