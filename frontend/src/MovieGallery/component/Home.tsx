@@ -45,7 +45,7 @@ export default function Home(){
     }
 
     return(
-        <div className={"container-xl"}>
+        <div className={"container-fluid"}>
             <h1>Upcoming Movies</h1>
             <UpcomingMovieGallery upcomingMovies={upcomingMovies} />
 
