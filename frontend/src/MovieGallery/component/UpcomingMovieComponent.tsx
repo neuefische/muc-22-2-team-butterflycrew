@@ -11,7 +11,7 @@ type UpcomingMovieProps = {
 export default function UpcomingMovieComponent(props: UpcomingMovieProps){
 
     const navigate = useNavigate()
-    function handleOnClick(){
+    function handleDetailsClick(){
         navigate("/details/" + props.upcomingMovie.id)
     }
 
@@ -24,18 +24,11 @@ export default function UpcomingMovieComponent(props: UpcomingMovieProps){
     }
 
     return(
-        <div className="card h-auto">
-            <img src={getImage(props.upcomingMovie.poster_path)} className="card-img-top" alt={props.upcomingMovie.title} />
-                <div className="card-body">
-                    <h5 className="card-title">{props.upcomingMovie.title}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">{parseDate(props.upcomingMovie.release_date)}</h6>
-                    <p className="card-text">
-                        <button className={"btn btn-info mx-2"} onClick={handleOnClick}>Details</button>
-                    </p>
-                </div>
-                <div className="card-footer">
-                    <small className="text-muted">Genres:{props.upcomingMovie.genre_ids}</small>
-                </div>
+        <div className="col">
+            <div className="card h-100">
+                <img src={getImage(props.upcomingMovie.poster_path)} className="card-img rounded-start rounded-end" alt={props.upcomingMovie.title + " Poster"} onClick={handleDetailsClick} />
+            </div>
+            <i className="fa-solid fa-star"></i>
         </div>
     )
 }
