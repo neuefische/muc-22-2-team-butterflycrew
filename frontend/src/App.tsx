@@ -18,7 +18,9 @@ function App() {
                     <Route path={"/Movies"} element={<MovieApp />}></Route>
                     <Route path={"/details/:id"} element={<Details />}></Route>
                 </Routes>
+                <Footer/>
             </BrowserRouter>
+
         </div>
     );
 }
