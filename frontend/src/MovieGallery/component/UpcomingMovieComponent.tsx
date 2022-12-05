@@ -28,7 +28,7 @@ export default function UpcomingMovieComponent(props: UpcomingMovieProps){
         <div className="col">
             <div className="card border-0 upcomingMovieCard" onClick={handleDetailsClick}>
                 <img src={getImage(props.upcomingMovie.poster_path)} className="card-img-top rounded-start rounded-end" alt={props.upcomingMovie.title + " Poster"} />
-                <div className={"card-img-overlay"}>
+                <div className={"card-img-overlay overlay"}>
                     <button className={"btn btn-info disabled"}>Release Date: {parseDate(props.upcomingMovie.release_date)}</button>
                 </div>
             </div>
