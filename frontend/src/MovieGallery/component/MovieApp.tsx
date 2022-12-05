@@ -2,6 +2,7 @@ import MovieGallery from "./MovieGallery";
 import {useEffect, useState} from "react";
 import {Movie} from "../model/Movie";
 import axios from "axios";
+import "./MovieApp.css"
 
 export default function MovieApp(){
 
@@ -20,7 +21,7 @@ export default function MovieApp(){
     }
 
     return(
-        <div>
+        <div className={"container-fluid movie-app"}>
             <MovieGallery movieList={movies}/>
         </div>
     )
