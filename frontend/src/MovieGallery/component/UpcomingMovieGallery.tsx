@@ -14,7 +14,7 @@ export default function UpcomingMovieGallery(props: UpcomingMovieGalleryProps){
     })
 
     return(
-        <div className="row row-cols-md-1 row-cols-lg-2 row-cols-xl-4 g">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4">
             {upcomingMovieComponent}
         </div>
     )
