@@ -1,31 +1,27 @@
-.containerDetails{
-    position: relative;
-    scale: 400%;
-}
+
 .detailsOverview{
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 70rem;
     overflow: hidden;
+    display: flex;
 
 }
 .movieOverview{
-    text-align: center;
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+
     border: 1px solid black;
-    width: 600px;
+
+    width: 1200px;
     padding-bottom: 15px;
     padding-left: 5px;
     padding-right: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-bottom: 25px;
-    position: absolute;
-    top: 23rem;
-    left:40rem;
-    z-index: 10;
-    opacity:100%;
 }
 .moviePicture{
+    margin-top: 10px;
     margin-bottom: 10px;
-    scale: 80%;
 }

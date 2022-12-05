@@ -31,22 +31,19 @@ export default function Details(){
         <div className={"detailsOverview"}>
             {!movie && <p>loading files...</p>}
             {movie &&
-                <section>
-                <div className={"containerDetails"}>
-                    <img className={"moviePictureBackground"} alt={movie.title + "backgroundpicpic"}  src={getImage(movie.poster_path)}/>
-                </div>
-                <div className={"movieOverview"}>
-                <img className={"moviePicture"} alt={movie.title + "pic"} src={getImage(movie.poster_path)}/>
-                    <h1> {movie.title}</h1>
-                <p>Originaltitel: {movie.original_title}</p>
-                <p>Release: {movie.release_date}</p>
-                <p>Populatität: {movie.popularity}</p>
-                <p>Average Rating: {movie.vote_average}</p>
+
+                    <div className={"movieOverview"}>
+                        <img className={"moviePicture"} alt={movie.title + "pic"} src={getImage(movie.poster_path)}/>
+                        <h1> {movie.title}</h1>
+                        <p>Originaltitel: {movie.original_title}</p>
+                        <p>Release: {movie.release_date}</p>
+                        <p>Populatität: {movie.popularity}</p>
+                        <p>Average Rating: {movie.vote_average}</p>
 
                         {movie.overview &&
-                <article><h3>Beschreibung:</h3>{movie.overview}</article>}
-                </div>
-                </section>
+                            <article><h3>Beschreibung:</h3>{movie.overview}</article>}
+                    </div>
+
             }
         </div>
     )
