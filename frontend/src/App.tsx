@@ -7,6 +7,8 @@ import MovieExchangeApp from "./MovieGallery/component/MovieExchangeApp";
 
 import Footer from "./MovieGallery/component/Footer";
 import MovieApp from "./MovieGallery/component/MovieApp";
+import Login from "./MovieGallery/Login";
+
 function App() {
     return (
         <div className="App">
@@ -18,6 +20,8 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<Home/>}></Route>
                     <Route path={"/Movies"} element={<MovieApp />}></Route>
+                    <Route path={"/details/:id"} element={<Details />}></Route>
+                    <Route path={"/login"} element={<Login />}></Route>
                     <Route path={"/exchange"} element={<MovieExchangeApp/>}></Route>
                     <Route path={"/details/:id"} element={<Details/>}></Route>
                 </Routes>
