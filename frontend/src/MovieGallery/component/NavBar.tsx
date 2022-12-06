@@ -16,6 +16,8 @@ export default function NavBar() {
                 <div className={"navigation"}>
                     <NavLink className={"NavLink"} to={"/"}>Home</NavLink>
                     <NavLink className={"NavLink"} to={"/movies"}>Movies</NavLink>
+                    <NavLink className={"NavLink"} to={"/börse"}>Börse</NavLink>
+                    <NavLink className={"NavLink"} to={"/login"}>Login</NavLink>
                     <NavLink className={"NavLink"} to={"/exchange"}>Exchange</NavLink>
                 </div>
             </nav>
