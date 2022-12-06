@@ -1,24 +1,30 @@
 package de.neuefische.backend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.neuefische.backend.models.Movie;
 import de.neuefische.backend.models.MovieToExchange;
 import de.neuefische.backend.repo.ExchangeRepo;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 class ExchangeControllerTest {
 
@@ -26,11 +32,23 @@ class ExchangeControllerTest {
     private MockMvc mockMvc;
 
     @Autowired
+    private WebApplicationContext context;
+
+    @Autowired
     private ExchangeRepo exchangeRepo;
 
     @Autowired
     private ObjectMapper objectMapper;
 
+    @org.junit.jupiter.api.BeforeEach
+    public void setup() {
+        mockMvc = MockMvcBuilders
+                .webAppContextSetup(context)
+                .apply(springSecurity())
+                .build();
+    }
+
+    @WithMockUser("spring")
     @Test
     @DirtiesContext
     void getAllEntries_whenEntryListEmpty_thanReturnList() throws Exception {
@@ -39,6 +57,7 @@ class ExchangeControllerTest {
                 .andExpect(content().json("[]"));
     }
 
+    @WithMockUser("spring")
     @Test
     @DirtiesContext
     void addEntry() throws Exception {
@@ -64,6 +83,7 @@ class ExchangeControllerTest {
         assertNotNull(movieToExchange.id());
     }
 
+    @WithMockUser("spring")
     @Test
     @DirtiesContext
     void getEntryByID() throws Exception {
@@ -91,6 +111,7 @@ class ExchangeControllerTest {
                         """.replace("<ID>", result.id())));
     }
 
+    @WithMockUser("spring")
     @Test
     @DirtiesContext
     void updateEntry() throws Exception {
@@ -133,6 +154,7 @@ class ExchangeControllerTest {
                 ));
     }
 
+    @WithMockUser("spring")
     @Test
     @DirtiesContext
     void deleteEntry() throws Exception {
