@@ -24,24 +24,33 @@ export default function Login(){
             .then(console.log)
     }
 
-    const loginStyle = {
-        width: "200px",
-        height: "500px"
-    }
-
     return(
         <div className={"container-sm mt-2"}>
-            <div style={loginStyle}>
-                <form onSubmit={onLoginSubmit}>
-                    <div className="input-group mb-3">
-                        <input type="text" value={username} onChange={onUsernameChange} className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+            <form onSubmit={onLoginSubmit}>
+                <div className="row mb-3">
+                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Username</label>
+                    <div className="col-sm-10">
+                        <input type="text" className="form-control" id="inputEmail3" value={username} onChange={onUsernameChange} />
                     </div>
-                    <div className="input-group mb-3">
-                        <input type="password" value={password} onChange={onPasswordChange} className="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
+                </div>
+                <div className="row mb-3">
+                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
+                    <div className="col-sm-10">
+                        <input type="password" className="form-control" id="inputPassword3" value={password} onChange={onPasswordChange} />
                     </div>
-                    <button className={"btn btn-info"} type={"submit"}>Login</button>
-                </form>
-            </div>
+                </div>
+                <div className="row mb-3">
+                    <div className="col-sm-10 offset-sm-2">
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                                <label className="form-check-label" htmlFor="gridCheck1">
+                                    Stay logged in
+                                </label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" className="btn btn-primary">Login</button>
+            </form>
         </div>
     )
 }
