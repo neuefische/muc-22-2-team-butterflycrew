@@ -48,6 +48,11 @@
     </dependencies>
 
 <build>
+    <resources>
+        <resource>
+            <directory>../frontend/build</directory>
+        </resource>
+    </resources>
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
