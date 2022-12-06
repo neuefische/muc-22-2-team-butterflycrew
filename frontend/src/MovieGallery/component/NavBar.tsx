@@ -3,12 +3,15 @@ import {NavLink} from "react-router-dom";
 import logo from "../img/ Butterfly_ohne_Schrift.png"
 import "../font/Amsterdam.ttf"
 import "./NavBar.css"
-import Login from "../Login";
-import useUser from "../hooks/useUser";
+import LoginModal from "./LoginModal";
 
-export default function NavBar() {
+type NavBarProps={
+    login:(username:string, password:string)=>Promise<string>
+}
 
-    const {login}= useUser()
+export default function NavBar(props: NavBarProps) {
+
+
 
     return (
         <div>
@@ -40,6 +43,8 @@ export default function NavBar() {
                     </div>
                     <NavLink className={"NavLink"} to={"/login"}>Login</NavLink>
                     <NavLink className={"NavLink"} to={"/exchange"}>Exchange</NavLink>
+                    <LoginModal openLoginModal={false} login={props.login}/>
+
                 </div>
             </nav>
 

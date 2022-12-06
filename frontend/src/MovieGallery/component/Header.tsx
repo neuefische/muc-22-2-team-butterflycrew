@@ -2,11 +2,15 @@ import NavBar from "./NavBar";
 import bg from '../img/StarWars.jpg'
 import "./Header.css"
 
-export default function Header(){
+type HeaderProps={
+    login:(username:string, password:string)=>Promise<string>
+}
+
+export default function Header(props: HeaderProps){
 
     return(
         <div>
-            <NavBar/>
+            <NavBar login={props.login}/>
             <div className="card-width card text-bg-dark">
                 <img src={bg} className="card-img" alt="Background"/>
                     <div className="card-img-overlay header1">
