@@ -25,7 +25,8 @@
 .NavLink {
     list-style: none;
     color: white;
-    margin-left: 40px;
+    margin-left: 30px;
+    margin-top: 7px;
     font-family: "Andale Mono", sans-serif;
     font-weight: bold;
     text-decoration: none;
@@ -34,7 +35,7 @@
 .navbar{
     flex-direction: row;
     background-color: #545454;
-    border-bottom-right-radius: 100px;
+    border-bottom-right-radius: 90px;
 }
 
 @media only screen and (max-width: 700px){
