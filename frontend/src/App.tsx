@@ -20,7 +20,7 @@ const {username, login}= useUser()
 
             <BrowserRouter>
 
-                <Header/>
+                <Header login={login}/>
 
                 <Routes>
                     <Route path={"/"} element={<Home/>}></Route>
