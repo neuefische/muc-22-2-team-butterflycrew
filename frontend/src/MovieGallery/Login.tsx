@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent, useState} from "react";
+import React, {ChangeEvent, FormEvent, useState} from "react";
 import axios from "axios";
 
 export default function Login(){
@@ -25,7 +25,6 @@ export default function Login(){
     }
 
     return(
-        <div className={"container-sm mt-2"}>
             <form onSubmit={onLoginSubmit}>
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Username</label>
@@ -51,6 +50,5 @@ export default function Login(){
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
-        </div>
     )
 }
