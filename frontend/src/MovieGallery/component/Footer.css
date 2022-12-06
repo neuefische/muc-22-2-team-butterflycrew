@@ -13,9 +13,10 @@ footer {
 
     background-color: #545454;
     color: #fff;
-    padding: 30px 0 30px;
+    padding: 50px 0 70px;
     border-bottom-left-radius: 125px;
     font-size: 16px;
+    margin-top: 4rem;
 
 }
 
@@ -115,13 +116,10 @@ ul li a {
         flex-basis: 100%;
     }
 }
-.col:nth-child(2), .col:nth-child(3) {
-    flex-basis: 100px;
-}
 
-.col ul{
-    padding: 0;
-}
+
+
+
 
 .social-icons li{
     list-style-type: none;

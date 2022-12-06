@@ -51,6 +51,12 @@ export default function Footer() {
                         </ul>
                     </div>
                 </div>
+                <div className={"row"}>
+                    <div className={"col"}>
+                        <p>Have a break, have a Movie.</p>
+                    </div>
+
+                </div>
             </div>
         </footer>
 

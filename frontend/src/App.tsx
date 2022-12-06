@@ -4,6 +4,7 @@ import Details from "./MovieGallery/component/Details";
 import Header from "./MovieGallery/component/Header";
 import Home from "./MovieGallery/component/Home";
 import MovieApp from "./MovieGallery/component/MovieApp";
+import Footer from "./MovieGallery/component/Footer";
 
 function App() {
     return (
