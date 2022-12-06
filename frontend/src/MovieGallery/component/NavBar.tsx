@@ -16,7 +16,7 @@ export default function NavBar() {
                 <div className={"navigation"}>
                     <NavLink className={"NavLink"} to={"/"}>Home</NavLink>
                     <NavLink className={"NavLink"} to={"/movies"}>Movies</NavLink>
-                    <NavLink className={"NavLink"} to={"/börse"}>Börse</NavLink>
+                    <NavLink className={"NavLink"} to={"/exchange"}>Exchange</NavLink>
                     <form className="d-flex mx-5" role="search">
                         <input className="form-control me-2 searchbar" type="search" placeholder="Search" aria-label="Search"/>
 

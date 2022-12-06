@@ -1,7 +1,7 @@
 
 
 export type MovieToExchange = {
-    id: string,
+    id?: string,
     title: string,
     status: string,
     description: string,
