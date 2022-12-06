@@ -22,7 +22,8 @@ export default function Footer() {
                         <h3>Office <div className={"underline"}><span></span></div></h3>
                         <p> XXL Road</p>
                         <p>Jùpiterfield, Mars</p>
-                        <p>blablabla, ZIP 54584 Space</p>
+                        <p>blablabla, ZIP
+                            54584 Space</p>
                         <p className={"email-id"}>mmvs@space.com</p>
                         <h4>+49 - 9846546</h4>
                     </div>
@@ -43,11 +44,12 @@ export default function Footer() {
                             <li><a href={""}>Contact Us</a></li>
                         </ul>
                     </div>
-                    <div className={"social-icons"}/>
+                <div className={"col social-icons"}>
                     <i className="fa-brands fa-facebook"></i>
                     <i className="fa-brands fa-instagram"></i>
                     <i className="fa-brands fa-twitter"></i>
                     <i className="fa-brands fa-youtube"></i>
+                </div>
                 </div>
             </footer>
         </nav>

@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
+    font-family: "Andale Mono", sans-serif;
     box-sizing: border-box;
 }
 
@@ -16,8 +16,8 @@ footer {
     color: #fff;
     padding: 100px 0 30px;
     border-bottom-left-radius: 125px;
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 23px;
 }
 
 .row {
@@ -25,8 +25,8 @@ footer {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: baseline;
+
 }
 
 .col {
@@ -46,8 +46,9 @@ footer {
 
 .col h3 {
     width: fit-content;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     position: relative;
+    font-weight: bold;
 }
 
 .email-id {
@@ -66,17 +67,11 @@ ul li a {
     color: #fff;
 }
 
-.social-icons .fab {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    font-size: 20px;
-    color: #000;
-    background: #ffffff;
-    margin-right: 15px;
-    cursor: pointer;
+.social-icons i {
+    font-size: 50px;
+    margin-right: 30px;
+
+
 }
 
 .underline {
@@ -88,6 +83,7 @@ ul li a {
     top: 25px;
     left: 0;
     overflow: hidden;
+    margin-top: 0.5rem
 }
 
 .underline span {
