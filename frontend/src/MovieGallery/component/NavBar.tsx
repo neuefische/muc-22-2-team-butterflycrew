@@ -4,8 +4,11 @@ import logo from "../img/ Butterfly_ohne_Schrift.png"
 import "../font/Amsterdam.ttf"
 import "./NavBar.css"
 import Login from "../Login";
+import useUser from "../hooks/useUser";
 
 export default function NavBar() {
+
+    const {login}= useUser()
 
     return (
         <div>
@@ -30,7 +33,7 @@ export default function NavBar() {
                                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div className="modal-body">
-                                    <Login />
+                                    <Login login={login} />
                                 </div>
                             </div>
                         </div>

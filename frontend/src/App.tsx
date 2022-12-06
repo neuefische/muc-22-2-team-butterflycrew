@@ -8,8 +8,13 @@ import MovieExchangeApp from "./MovieGallery/component/MovieExchangeApp";
 import Footer from "./MovieGallery/component/Footer";
 import MovieApp from "./MovieGallery/component/MovieApp";
 import Login from "./MovieGallery/Login";
+import ProtectedRoutes from "./MovieGallery/component/ProtectedRoutes";
+import useUser from "./MovieGallery/hooks/useUser";
 
 function App() {
+
+const {username, login}= useUser()
+
     return (
         <div className="App">
 
@@ -27,7 +32,6 @@ function App() {
                 </Routes>
                 <Footer/>
             </BrowserRouter>
-
         </div>
     );
 }
