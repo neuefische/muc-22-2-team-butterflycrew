@@ -1,6 +1,7 @@
 import {MovieToExchange} from "../model/MovieToExchange";
 import MovieExchangeCard from "./MovieExchangeCard";
 
+
 export type MovieExchangeGalleryProps={
     movies: MovieToExchange[]
 }
@@ -14,6 +15,7 @@ export default function MovieExchangeGallery(props:MovieExchangeGalleryProps){
     return(
         <div>
             {toDoItemComponents}
+
         </div>
     )
 }
