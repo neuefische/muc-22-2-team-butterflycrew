@@ -1,10 +1,17 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
-import axios from "axios";
 
-export default function Login(){
+import {useNavigate} from "react-router-dom";
+
+
+type LoginProps={
+    login:(username:string, password:string)=>Promise<string>
+}
+
+
+export default function Login(props: LoginProps){
     const [username, setUsername] = useState<string>("")
     const [password, setPassword] = useState<string>("")
-
+    const navigate = useNavigate()
     function onUsernameChange(event: ChangeEvent<HTMLInputElement>){
         setUsername(event.target.value)
     }
@@ -14,14 +21,12 @@ export default function Login(){
 
     function onLoginSubmit(event: FormEvent<HTMLFormElement>){
         event.preventDefault()
+        props.login(username,password)
+            .then(user=>{
+             navigate("/movies")
+            })
 
-        axios.post("/api/users/login", undefined, {
-            auth: {
-                username,
-                password
-            }
-        })
-            .then(console.log)
+
     }
 
     return(
