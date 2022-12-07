@@ -33,8 +33,12 @@ export default function Details(){
             {movie &&
 
                     <div className={"movieOverview"}>
-                        <img className={"moviePicture"} alt={movie.title + "pic"} src={getImage(movie.poster_path)}/>
+                        <div className={"moviePictureContainer"}>
+                        <img className={"moviePicture rounded-start rounded-end"} alt={movie.title + "pic"} src={getImage(movie.poster_path)}/>
+                        </div>
+                        <div className={"movieDetailsContainer"}>
                         <h1> {movie.title}</h1>
+                            <hr/>
                         <p>Originaltitel: {movie.original_title}</p>
                         <p>Release: {movie.release_date}</p>
                         <p>Populatität: {movie.popularity}</p>
@@ -42,6 +46,7 @@ export default function Details(){
 
                         {movie.overview &&
                             <article><h3>Beschreibung:</h3>{movie.overview}</article>}
+                        </div>
                     </div>
 
             }
