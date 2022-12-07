@@ -45,7 +45,7 @@ export default function Details(){
                         <p>Average Rating: {movie.vote_average}</p>
 
                         {movie.overview &&
-                            <article><h3>Beschreibung:</h3>{movie.overview}</article>}
+                            <article className={"overviewArticle"}><h3>Beschreibung:</h3>{movie.overview}</article>}
                         </div>
                     </div>
 
