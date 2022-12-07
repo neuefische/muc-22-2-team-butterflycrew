@@ -8,6 +8,7 @@
 
 .navigation{
     display: flex;
+    align-items: baseline;
 }
 
 .logo img {
@@ -23,7 +24,7 @@
 .NavLink {
     list-style: none;
     color: white;
-    margin-left: 30px;
+    margin-left: 40px;
     font-family: "Andale Mono", sans-serif;
     font-weight: bold;
     text-decoration: none;
@@ -32,9 +33,10 @@
 .navbar{
     flex-direction: row;
     background-color: #545454;
+    border-bottom-right-radius: 100px;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 700px){
     .searchbar{
         display: none;
     }
