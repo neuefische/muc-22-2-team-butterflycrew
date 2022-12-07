@@ -1,6 +1,6 @@
 import {MovieToExchange} from "../model/MovieToExchange";
 import {ChangeEvent, FormEvent, useState} from "react";
-
+import "./MovieExchangeForm.css"
 
 type MovieExchangeFormProps = {
     addMovie: (newMovie: MovieToExchange) => void
@@ -76,9 +76,9 @@ export default function MovieExchangeForm(props: MovieExchangeFormProps) {
                                aria-label="Price"
                                aria-describedby="basic-addon1" value={exchangeMovie.price} name={"price"}/>
                     </div>
-
-                    <button className={"btn btn-outline-success mb-2"} type={"submit"}>Add</button>
-
+                    <div className={"button-style"}>
+                    <button className={"btn btn-lg btn-outline-success mb-2"} type={"submit"}>Add</button>
+                    </div>
                 </form>
             </div>
         </div>
