@@ -2,10 +2,15 @@ import {MovieToExchange} from "../model/MovieToExchange";
 
 export type MovieExchangeCardProps = {
     movieToExchange: MovieToExchange
+    deleteMovie:(id?:string)=>void
 
 }
 
 export default function MovieExchangeCard(props: MovieExchangeCardProps) {
+
+    function onClickDelete(){
+        props.deleteMovie(props.movieToExchange.id)
+    }
 
 
     return (
@@ -16,6 +21,8 @@ export default function MovieExchangeCard(props: MovieExchangeCardProps) {
                 <p>Status: {props.movieToExchange.status}</p>
                 <p>Condition: {props.movieToExchange.condition}</p>
                 <p>Price: {props.movieToExchange.price}</p>
+                <button className={"btn btn-outline-secondary mt-3"} >Edit</button>
+                <button className={"btn btn-outline-danger mt-1"} onClick={onClickDelete}>Delete</button>
             </div>
         </div>
     )
