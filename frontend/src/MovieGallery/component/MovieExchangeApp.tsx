@@ -35,11 +35,16 @@ export default function MovieExchangeApp(){
             })
     }
 
+    function editMovie(newMovie: MovieToExchange){
+       axios.put("/api/exchange/" + newMovie.id, newMovie)
+           .then(getExchangeMovies)
+
+    }
 
     return(
         <div>
             <MovieExchangeForm addMovie={addExchangeMovie}/>
-            <MovieExchangeGallery deleteMovie={removeMovie}  movies={exchangeMovies}/>
+            <MovieExchangeGallery editMovie={editMovie} deleteMovie={removeMovie}  movies={exchangeMovies}/>
         </div>
     )
 }
