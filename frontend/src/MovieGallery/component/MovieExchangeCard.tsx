@@ -5,17 +5,18 @@ export type MovieExchangeCardProps = {
 
 }
 
-export default function MovieExchangeCard(props:MovieExchangeCardProps){
+export default function MovieExchangeCard(props: MovieExchangeCardProps) {
 
 
-
-    return(
-    <div className={"card border-0"}>
-        <p>{props.movieToExchange.title}</p>
-        <p>{props.movieToExchange.description}</p>
-        <p>{props.movieToExchange.status}</p>
-        <p>{props.movieToExchange.condition}</p>
-        <p>{props.movieToExchange.price}</p>
-    </div>
+    return (
+        <div className={"container-fluid justify-content-center"}>
+            <div className={"card m-4 p-2 border"}>
+                <p>Title: {props.movieToExchange.title}</p>
+                <p>Description: {props.movieToExchange.description}</p>
+                <p>Status: {props.movieToExchange.status}</p>
+                <p>Condition: {props.movieToExchange.condition}</p>
+                <p>Price: {props.movieToExchange.price}</p>
+            </div>
+        </div>
     )
 }
