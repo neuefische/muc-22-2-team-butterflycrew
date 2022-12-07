@@ -6,5 +6,5 @@ export type MovieToExchange = {
     status: string,
     description: string,
     condition: string,
-    price: number
+    price?: number
 }

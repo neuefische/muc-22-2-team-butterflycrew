@@ -13,7 +13,7 @@ export default function MovieExchangeGallery(props:MovieExchangeGalleryProps){
     })
 
     return(
-        <div>
+        <div className={"row row-cols-4"}>
             {toDoItemComponents}
 
         </div>
