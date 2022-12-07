@@ -25,10 +25,21 @@ export default function MovieExchangeApp(){
 
     }
 
+    function removeMovie(id?: string) {
+        axios.delete(`/api/exchange/${id}`)
+            .then(() => {
+                setExchangeMovies(prevState => {
+                    return prevState.filter((exchangeMovie) => exchangeMovie.id !== id
+                    )
+                })
+            })
+    }
+
+
     return(
         <div>
             <MovieExchangeForm addMovie={addExchangeMovie}/>
-            <MovieExchangeGallery movies={exchangeMovies}/>
+            <MovieExchangeGallery deleteMovie={removeMovie}  movies={exchangeMovies}/>
         </div>
     )
 }
