@@ -15,8 +15,7 @@ export default function MovieExchangeForm(props: MovieExchangeFormProps) {
         description: "",
         status: "",
         condition: "",
-        // @ts-ignore
-        price: ""
+        price: undefined
     }
 
     const [exchangeMovie, setExchangeMovie] = useState<MovieToExchange>(emptyFormPlaceholder)
@@ -75,10 +74,14 @@ export default function MovieExchangeForm(props: MovieExchangeFormProps) {
                         <span className="input-group-text" id="basic-addon1">Price:</span>
                         <input onChange={handleChange} type="text" className="form-control" placeholder="EUR"
                                aria-label="Price"
-                               aria-describedby="basic-addon1" value={exchangeMovie.price} name={"price"}/>
+                               aria-describedby="basic-addon1"
+                               value={exchangeMovie.price === undefined
+                                   ? ""
+                                   : exchangeMovie.price}
+                               name={"price"}/>
                     </div>
                     <div className={"button-style"}>
-                    <button className={"btn btn-lg btn-outline-success mb-2"} type={"submit"}>Add</button>
+                        <button className={"btn btn-lg btn-outline-success mb-2"} type={"submit"}>Add</button>
                     </div>
                 </form>
             </div>
