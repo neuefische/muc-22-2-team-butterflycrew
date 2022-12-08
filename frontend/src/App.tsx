@@ -6,6 +6,7 @@ import Home from "./MovieGallery/component/Home";
 import MovieExchangeApp from "./MovieGallery/component/MovieExchangeApp";
 
 import Footer from "./MovieGallery/component/Footer";
+import MovieApp from "./MovieGallery/component/MovieApp";
 function App() {
     return (
         <div className="App">
@@ -16,7 +17,7 @@ function App() {
 
                 <Routes>
                     <Route path={"/"} element={<Home/>}></Route>
-                    <Route path={"/Movies"} element={""}></Route>
+                    <Route path={"/Movies"} element={<MovieApp />}></Route>
                     <Route path={"/exchange"} element={<MovieExchangeApp/>}></Route>
                     <Route path={"/details/:id"} element={<Details/>}></Route>
                 </Routes>
