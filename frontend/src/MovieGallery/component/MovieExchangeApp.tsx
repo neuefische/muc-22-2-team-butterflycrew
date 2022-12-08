@@ -3,10 +3,18 @@ import axios from "axios";
 import MovieExchangeForm from "./MovieExchangeForm";
 import {useEffect, useState} from "react";
 import MovieExchangeGallery from "./MovieExchangeGallery";
+import SearchBar from "./SearchBar";
 
 export default function MovieExchangeApp(){
 
     const [exchangeMovies, setExchangeMovies]=useState<MovieToExchange[]>([])
+    const [searchText, setSearchText] = useState<string>("")
+
+    function handleOnChangSearchText(searchText: string){
+        setSearchText(searchText)
+    }
+
+    const filteredExchangeMovies = exchangeMovies.filter((exchangeMovie) => exchangeMovie.title.toLowerCase().includes(searchText.toLowerCase()) || exchangeMovie.description.toLowerCase().includes(searchText.toLowerCase()) || exchangeMovie.status.toLowerCase().includes(searchText.toLowerCase()))
 
     useEffect(()=>{
         getExchangeMovies()
@@ -44,7 +52,10 @@ export default function MovieExchangeApp(){
     return(
         <div>
             <MovieExchangeForm addMovie={addExchangeMovie}/>
-            <MovieExchangeGallery editMovie={editMovie} deleteMovie={removeMovie}  movies={exchangeMovies}/>
+            <div className={"container"}>
+                <SearchBar handleSearchText={handleOnChangSearchText} />
+            </div>
+            <MovieExchangeGallery editMovie={editMovie} deleteMovie={removeMovie}  movies={filteredExchangeMovies}/>
         </div>
     )
 }
