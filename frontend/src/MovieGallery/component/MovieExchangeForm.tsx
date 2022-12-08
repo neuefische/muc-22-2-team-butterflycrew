@@ -14,7 +14,7 @@ export default function MovieExchangeForm(props: MovieExchangeFormProps) {
         description: "",
         status: "",
         condition: "",
-
+        price: undefined
     }
 
     const [exchangeMovie, setExchangeMovie] = useState<MovieToExchange>(emptyFormPlaceholder)
