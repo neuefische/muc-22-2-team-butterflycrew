@@ -9,6 +9,7 @@
 .navigation{
     display: flex;
     align-items: baseline;
+    margin-right: 50px;
 }
 
 .logo img {
