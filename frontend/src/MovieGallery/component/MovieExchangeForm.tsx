@@ -8,13 +8,15 @@ type MovieExchangeFormProps = {
 
 export default function MovieExchangeForm(props: MovieExchangeFormProps) {
 
+
     const emptyFormPlaceholder: MovieToExchange = {
 
         title: "",
         description: "",
         status: "",
         condition: "",
-        price: undefined
+        // @ts-ignore
+        price: ""
     }
 
     const [exchangeMovie, setExchangeMovie] = useState<MovieToExchange>(emptyFormPlaceholder)
@@ -34,9 +36,8 @@ export default function MovieExchangeForm(props: MovieExchangeFormProps) {
         setExchangeMovie(
             (prevState) => ({
                 ...prevState,
-                [changedInput]:
-                    event.target.type === "text"
-                        ? event.target.value : ""
+                [changedInput]: event.target.value
+
             })
         )
     }
