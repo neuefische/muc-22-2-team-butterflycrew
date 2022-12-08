@@ -50,15 +50,15 @@ export default function MovieExchangeCard(props: MovieExchangeCardProps) {
     return (
         <div className={"container-fluid justify-content-center"}>
             <div className={"card m-4 p-2 border"}>
-                <h6>Title:</h6> <p className={showButton? "disappear-btn":"show-btn"}>{props.movieToExchange.title}</p>
+                <h6 className={"titles-card"}>Title:</h6> <p className={showButton? "disappear-btn":"show-btn"}>{props.movieToExchange.title}</p>
                 <input className={showButton?"show-btn":"disappear-btn"} type={"text"} onChange={(event:ChangeEvent<HTMLInputElement>) => {setTitle(event.target.value)}} value={title}/>
-                <h6>Description:</h6> <p className={showButton? "disappear-btn":"show-btn"}>{props.movieToExchange.description}</p>
+                <h6 className={"titles-card"}>Description:</h6> <p className={showButton? "disappear-btn":"show-btn"}>{props.movieToExchange.description}</p>
                 <input className={showButton?"show-btn":"disappear-btn"} type={"text"} onChange={(event:ChangeEvent<HTMLInputElement>) => {setDescription(event.target.value)}} value={description}/>
-                <h6>Status: </h6> <p className={showButton? "disappear-btn":"show-btn"}>{props.movieToExchange.status}</p>
+                <h6 className={"titles-card"}>Status: </h6> <p className={showButton? "disappear-btn":"show-btn"}>{props.movieToExchange.status}</p>
                 <input className={showButton?"show-btn":"disappear-btn"} type={"text"} onChange={(event:ChangeEvent<HTMLInputElement>) => {setStatus(event.target.value)}} value={status}/>
-                <h6>Condition: </h6> <p className={showButton? "disappear-btn":"show-btn"}> {props.movieToExchange.condition}</p>
+                <h6 className={"titles-card"}>Condition: </h6> <p className={showButton? "disappear-btn":"show-btn"}> {props.movieToExchange.condition}</p>
                 <input className={showButton?"show-btn":"disappear-btn"} type={"text"} onChange={(event:ChangeEvent<HTMLInputElement>) => {setCondition(event.target.value)}} value={condition}/>
-                <h6>Price: </h6> <p className={showButton? "disappear-btn":"show-btn"}> {props.movieToExchange.price} EUR</p>
+                <h6 className={"titles-card"}>Price: </h6> <p className={showButton? "disappear-btn":"show-btn"}> {props.movieToExchange.price} EUR</p>
                 <input className={showButton?"show-btn":"disappear-btn"} type={"number"} onChange={(event:ChangeEvent<HTMLInputElement>) => {setPrice(Number(event.target.value))}} value={price}/>
 
 
