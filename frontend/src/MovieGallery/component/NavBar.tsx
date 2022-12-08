@@ -17,14 +17,6 @@ export default function NavBar() {
                     <NavLink className={"NavLink"} to={"/"}>Home</NavLink>
                     <NavLink className={"NavLink"} to={"/movies"}>Movies</NavLink>
                     <NavLink className={"NavLink"} to={"/exchange"}>Exchange</NavLink>
-                    <form className="d-flex mx-5" role="search">
-                        <input className="form-control me-2 searchbar" type="search" placeholder="Search" aria-label="Search"/>
-
-                        <button className="btn btn-outline-secondary" type="submit">
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </button>
-
-                    </form>
                 </div>
             </nav>
 
