@@ -12,7 +12,7 @@ export default function MovieApp(){
 
     useEffect(() => {
         getMovies()
-    }, [])
+    }, [searchText])
 
     function getMovies(){
         axios.get("/api/movies")
