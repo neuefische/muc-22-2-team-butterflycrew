@@ -12,16 +12,18 @@ import ProtectedRoutes from "./MovieGallery/component/ProtectedRoutes";
 import useUser from "./MovieGallery/hooks/useUser";
 import AboutUs from "./MovieGallery/component/AboutUs";
 
+
 function App() {
 
-const {username, login}= useUser()
+const {username, login, logout}= useUser()
+
 
     return (
         <div className="App">
 
             <BrowserRouter>
 
-                <Header login={login}/>
+                <Header username={username} logout={logout} login={login}/>
 
                 <Routes>
                     <Route path={"/"} element={<Home/>}></Route>

@@ -4,13 +4,16 @@ import "./Header.css"
 
 type HeaderProps={
     login:(username:string, password:string)=>Promise<string>
+    username:string,
+    logout:() => void,
+
 }
 
 export default function Header(props: HeaderProps){
 
     return(
         <div>
-            <NavBar login={props.login}/>
+            <NavBar username={props.username} logout={props.logout} login={props.login}/>
             <div className="card-width card text-bg-dark">
                 <img src={bg} className="card-img" alt="Background"/>
                     <div className="card-img-overlay header1">

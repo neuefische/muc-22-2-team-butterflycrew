@@ -2,9 +2,11 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 
+
 export default function useUser(){
 
-    const [username, setUsername]=useState<string>()
+    const [username, setUsername]=useState<string>("")
+
 
     useEffect(()=>{
         axios.get("/api/users/me")
