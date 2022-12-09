@@ -10,6 +10,7 @@ import MovieApp from "./MovieGallery/component/MovieApp";
 import Login from "./MovieGallery/Login";
 import ProtectedRoutes from "./MovieGallery/component/ProtectedRoutes";
 import useUser from "./MovieGallery/hooks/useUser";
+import AboutUs from "./MovieGallery/component/AboutUs";
 
 function App() {
 
@@ -25,6 +26,7 @@ const {username, login}= useUser()
                 <Routes>
                     <Route path={"/"} element={<Home/>}></Route>
                     <Route path={"/login"} element={<Login login={login} />}></Route>
+                    <Route path={"/about"} element={<AboutUs/>}></Route>
 
                     <Route element={
                         <ProtectedRoutes username={username}  login={login}/>
