@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css"
 import logo1 from "../img/1.png"
+import {NavLink} from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -26,7 +27,7 @@ export default function Footer() {
                         <h3>Links <div className={"underline"}><span></span></div></h3>
                         <ul>
                             <li><a href={"/home"}>Home</a></li>
-                            <li><a href={"/about"}>About Us</a></li>
+                            <li><NavLink to={"/about"}>About Us</NavLink></li>
                             <li><a href={"/home"}>Impressum</a></li>
                             <li><a href={"/home"}>Datenschutz</a></li>
                             <li><a href={"/home"}>AGB</a></li>
