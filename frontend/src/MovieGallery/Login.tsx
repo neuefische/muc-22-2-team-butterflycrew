@@ -5,6 +5,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 
 type LoginProps = {
     login: (username: string, password: string) => Promise<string>
+
 }
 
 
