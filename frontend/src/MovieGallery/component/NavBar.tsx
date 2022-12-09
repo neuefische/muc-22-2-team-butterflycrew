@@ -1,17 +1,31 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import logo from "../img/ Butterfly_ohne_Schrift.png"
 import "../font/Amsterdam.ttf"
 import "./NavBar.css"
 import LoginModal from "./LoginModal";
+import useUser from "../hooks/useUser";
 
-type NavBarProps={
-    login:(username:string, password:string)=>Promise<string>
+type NavBarProps = {
+    login: (username: string, password: string) => Promise<string>
 }
 
 export default function NavBar(props: NavBarProps) {
 
+    const {username, logout} = useUser()
+    useEffect(()=>{
 
+    },[showLogOut()])
+    function showLogOut() {
+        if (username === "Mousse au chocolate!") {
+            return (<a type="button" className="NavLink me-1"
+                       data-bs-toggle="modal"
+                       data-bs-target="#exampleModal">
+                Login
+            </a>)
+        }
+        return (<a onClick={logout} type="button" className="NavLink me-1"> Logout</a>)
+    }
 
     return (
         <div>
@@ -24,9 +38,9 @@ export default function NavBar(props: NavBarProps) {
                     <NavLink className={"NavLink"} to={"/"}>Home</NavLink>
                     <NavLink className={"NavLink"} to={"/movies"}>Movies</NavLink>
                     <NavLink className={"NavLink"} to={"/exchange"}>Exchange</NavLink>
-                    <a type="button" className="NavLink me-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Login
-                    </a>
+                    {
+                        showLogOut()
+                    }
                     <LoginModal openLoginModal={false} login={props.login}/>
 
                 </div>
