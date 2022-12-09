@@ -6,6 +6,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -37,7 +39,16 @@ class UserControllerTest {
     @Test
     @WithMockUser(username = "Frank")
     void logout() throws Exception {
-        mockMvc.perform(get("/api/users/me"))
+        mockMvc.perform(post("/api/users/logout").with(csrf()))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Mousse au chocolate!"));
+
+    }
+
+    @Test
+    @WithMockUser(username = "Frank")
+    void login() throws Exception {
+        mockMvc.perform(post("/api/users/login").with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Frank"));
 
