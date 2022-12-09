@@ -2,7 +2,7 @@ import bg from '../img/marcell.jpg'
 import bd from '../img/sam.jpg'
 import be from '../img/vladi.jpg'
 import bz from '../img/marcus.jpg'
-import "./AboutUs.css"
+
 
 export default function AboutUs() {
 
