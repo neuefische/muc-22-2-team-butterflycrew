@@ -23,26 +23,10 @@ export default function NavBar(props: NavBarProps) {
                 <div className={"navigation"}>
                     <NavLink className={"NavLink"} to={"/"}>Home</NavLink>
                     <NavLink className={"NavLink"} to={"/movies"}>Movies</NavLink>
-                    <NavLink className={"NavLink"} to={"/börse"}>Börse</NavLink>
-
+                    <NavLink className={"NavLink"} to={"/exchange"}>Exchange</NavLink>
                     <a type="button" className="NavLink me-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Login
                     </a>
-                    <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h1 className="modal-title fs-5" id="exampleModalLabel">Login</h1>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <Login login={login} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <NavLink className={"NavLink"} to={"/login"}>Login</NavLink>
-                    <NavLink className={"NavLink"} to={"/exchange"}>Exchange</NavLink>
                     <LoginModal openLoginModal={false} login={props.login}/>
 
                 </div>

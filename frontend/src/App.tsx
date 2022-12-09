@@ -24,11 +24,15 @@ const {username, login}= useUser()
 
                 <Routes>
                     <Route path={"/"} element={<Home/>}></Route>
-                    <Route path={"/Movies"} element={<MovieApp />}></Route>
-                    <Route path={"/details/:id"} element={<Details />}></Route>
-                    <Route path={"/login"} element={<Login />}></Route>
-                    <Route path={"/exchange"} element={<MovieExchangeApp/>}></Route>
-                    <Route path={"/details/:id"} element={<Details/>}></Route>
+                    <Route path={"/login"} element={<Login login={login} />}></Route>
+
+                    <Route element={
+                        <ProtectedRoutes username={username}  login={login}/>
+                    } >
+                        <Route path={"/Movies"} element={<MovieApp />}></Route>
+                        <Route path={"/exchange"} element={<MovieExchangeApp/>}></Route>
+                        <Route path={"/details/:id"} element={<Details />}></Route>
+                    </Route>
                 </Routes>
                 <Footer/>
             </BrowserRouter>
