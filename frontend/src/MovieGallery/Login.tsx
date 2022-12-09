@@ -26,7 +26,6 @@ export default function Login(props: LoginProps){
              navigate("/movies")
             })
 
-
     }
 
     return(
