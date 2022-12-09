@@ -56,8 +56,6 @@ export default function AboutUs() {
                                     of the card's content.</p>
                                 <a href="https://github.com/VladimirKlippert93" className="btn btn-outline-dark">GitHub <i
                                     className="fa-brands fa-github"></i></a>
-                                <a href="#" className="btn btn-outline-dark mx-2">LinkedIn <i
-                                    className="fa-brands fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>

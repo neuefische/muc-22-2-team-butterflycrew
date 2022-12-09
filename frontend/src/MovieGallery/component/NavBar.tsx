@@ -4,25 +4,27 @@ import logo from "../img/ Butterfly_ohne_Schrift.png"
 import "../font/Amsterdam.ttf"
 import "./NavBar.css"
 import LoginModal from "./LoginModal";
-import useUser from "../hooks/useUser";
+
 
 type NavBarProps = {
+    username:string,
+    logout:() => void,
     login: (username: string, password: string) => Promise<string>
 }
 
 export default function NavBar(props: NavBarProps) {
 
-    const {username, logout} = useUser()
+
 
     function showLogOut() {
-        if (username === "Mousse au chocolate!") {
-            return (<a href={"#"} type="button" className="NavLink me-1"
+        if (props.username === "Mousse au chocolate!") {
+            return (<button  type="button" className="NavLink me-1 p-0 btn"
                        data-bs-toggle="modal"
                        data-bs-target="#exampleModal">
                 Login
-            </a>)
+            </button>)
         }
-        return (<a href={"#"} onClick={logout} type="button" className="NavLink me-1"> Logout</a>)
+        return (<a href={"/"} onClick={props.logout} type="button" className="NavLink me-1"> Logout</a>)
     }
 
     return (
