@@ -1,5 +1,6 @@
 import Login from "../Login";
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 type LoginModalProps={
     login:(username:string, password:string)=>Promise<string>
@@ -16,7 +17,10 @@ export default function LoginModal(props: LoginModalProps){
         }
     }
 
-
+    const navigate = useNavigate()
+    function onClickCloseBtn(){
+        navigate("/")
+    }
 
     return(
         <div className={"modal fade " + showModal()} id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -24,7 +28,7 @@ export default function LoginModal(props: LoginModalProps){
                 <div className="modal-content">
                     <div className="modal-header">
                         <h1 className="modal-title fs-5" id="exampleModalLabel">Login</h1>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button onClick={onClickCloseBtn} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                         <Login login={props.login} />
