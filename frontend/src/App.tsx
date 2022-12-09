@@ -27,7 +27,7 @@ const {username, login, logout}= useUser()
 
                 <Routes>
                     <Route path={"/"} element={<Home/>}></Route>
-                    <Route path={"/login"} element={<Login login={login} />}></Route>
+                    <Route path={"/login"} element={<Login  login={login} />}></Route>
                     <Route path={"/about"} element={<AboutUs/>}></Route>
 
                     <Route element={
