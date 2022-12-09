@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {NavLink} from "react-router-dom";
 import logo from "../img/ Butterfly_ohne_Schrift.png"
 import "../font/Amsterdam.ttf"
@@ -13,9 +13,7 @@ type NavBarProps = {
 export default function NavBar(props: NavBarProps) {
 
     const {username, logout} = useUser()
-    useEffect(()=>{
 
-    },[showLogOut()])
     function showLogOut() {
         if (username === "Mousse au chocolate!") {
             return (<a type="button" className="NavLink me-1"
