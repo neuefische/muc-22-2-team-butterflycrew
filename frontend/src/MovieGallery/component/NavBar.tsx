@@ -16,13 +16,13 @@ export default function NavBar(props: NavBarProps) {
 
     function showLogOut() {
         if (username === "Mousse au chocolate!") {
-            return (<a type="button" className="NavLink me-1"
+            return (<a href={"#"} type="button" className="NavLink me-1"
                        data-bs-toggle="modal"
                        data-bs-target="#exampleModal">
                 Login
             </a>)
         }
-        return (<a onClick={logout} type="button" className="NavLink me-1"> Logout</a>)
+        return (<a href={"#"} onClick={logout} type="button" className="NavLink me-1"> Logout</a>)
     }
 
     return (
