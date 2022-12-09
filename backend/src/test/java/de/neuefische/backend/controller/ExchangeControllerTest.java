@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -74,7 +75,7 @@ class ExchangeControllerTest {
                                         "price": 8.50
                                         }
                                         """
-                        ))
+                        ).with(csrf()))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -138,7 +139,7 @@ class ExchangeControllerTest {
                                "price": 8.50
                                 }
                                         """
-                        ))
+                        ).with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(content().json(
                         """
@@ -169,7 +170,7 @@ class ExchangeControllerTest {
         );
         exchangeRepo.save(movieToExchange);
 
-        mockMvc.perform(delete("/api/exchange/" + movieToExchange.id()))
+        mockMvc.perform(delete("/api/exchange/" + movieToExchange.id()).with(csrf()))
                 .andExpect(status().isOk());
     }
 }
